@@ -9,13 +9,24 @@ const query = qs.stringify({
 });
 
 const queryDetails = qs.stringify({
-  populate: ['cover','blocks'], 
+  populate: 'blocks.files,image,cover,blocks.buttons', 
 }, {
   encodeValuesOnly: true,
 });
 
-console.log(query);
-function getProjects(): Promise<Projects> {
+function getProjects(pageNumber:Number, pageSize:Number): Promise<Projects> {
+  const query = qs.stringify(
+    {
+      populate: ['image'],
+      pagination: {
+        page: pageNumber,
+        pageSize: pageSize
+      }
+    },
+    {
+      encodeValuesOnly: true
+    }
+  );
      const url=`${process.env.REACT_APP_BACKEND_URL}/api/projects?${query}`;
     return axios.get(url).then(res=>create(res.data));
 }

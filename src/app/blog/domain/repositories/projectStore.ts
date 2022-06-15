@@ -7,7 +7,7 @@ interface ProjectStore{
     isLoadingSingleProject: boolean;
 
     //Action
-    getProjects(): Promise<Projects>;
+    getProjects(currentPage:Number, pageSize:Number): Promise<Projects>;
     getProject(slug: string) : Promise<Projects>;
 }
 export {ProjectStore}

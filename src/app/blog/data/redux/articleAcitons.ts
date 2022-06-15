@@ -1,9 +1,9 @@
 import { getArticles, getArticleDetails, getArticlesByCategory } from '../datasources/articleAPIService';
 import * as actionTypes from "../redux/articleActionTypes"
-const getArticlesAction =()=> (dispatch:any)=>{
+const getArticlesAction =(currentPage:Number, pageSize:Number)=> (dispatch:any)=>{
 dispatch({type:actionTypes.GET_ARTICLES});
 
-return getArticles().then((articles)=>{
+return getArticles(currentPage,pageSize).then((articles)=>{
     dispatch({type: actionTypes.GET_ARTICLES_SUCCESS, articles});
     return articles;
 });

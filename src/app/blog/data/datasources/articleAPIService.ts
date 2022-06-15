@@ -13,12 +13,22 @@ const queryDetails = qs.stringify({
   encodeValuesOnly: true,
 });
 
-console.log(query);
-function getArticles(): Promise<Articles> {
+function getArticles(pageNumber:Number, pageSize:Number): Promise<Articles> {
+  const query = qs.stringify(
+    {
+      populate: ['cover','category'],
+      pagination: {
+        page: pageNumber,
+        pageSize: pageSize
+      }
+    },
+    {
+      encodeValuesOnly: true
+    }
+  );
      const url=`${process.env.REACT_APP_BACKEND_URL}/api/articles?${query}`;
     return axios.get(url).then(res=>create(res.data));
 }
-
 
 function getArticleDetails(slug:String): Promise<Articles> {
 

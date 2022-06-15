@@ -1,4 +1,4 @@
-import React from "react";
+import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import type { AppRootState } from "../../../../main/data/appStoreImplementation";
@@ -19,7 +19,7 @@ CategoryStoreState
 
 const dispatch= useDispatch();
 
-const loadInitialCategories=React.useCallback(
+const loadInitialCategories=useCallback(
     () =>getCategoriesAction()(dispatch),
     [dispatch]
 );
