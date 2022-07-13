@@ -1,6 +1,6 @@
 import { getProjectDetails, getProjects } from "../../datasources/projectAPIService"; 
 import * as actionTypes from "../project/projectActionTypes"
-const getProjectsAction =(currentPage:Number, pageSize:Number)=> (dispatch:any)=>{
+const getProjectsAction =(currentPage:number, pageSize:number)=> (dispatch:any)=>{
 dispatch({type:actionTypes.GET_PROJECTS});
 
 return getProjects(currentPage,pageSize).then((projects)=>{
@@ -8,7 +8,7 @@ return getProjects(currentPage,pageSize).then((projects)=>{
     return projects;
 });
 };
-const getProjectDetailsAction =(slug : String)=> (dispatch:any)=>{
+const getProjectDetailsAction =(slug : string)=> (dispatch:any)=>{
     dispatch({type:actionTypes.GET_PROJECT_DETAILS});
     
     return getProjectDetails(slug).then((project)=>{

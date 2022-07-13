@@ -24,7 +24,7 @@ const getServices=useCallback(
 );
 
 const getService=useCallback(
-    (slug: String) =>getServiceDetailsAction(slug)(dispatch),
+    (slug: string) =>getServiceDetailsAction(slug)(dispatch),
     [dispatch]
 );
 

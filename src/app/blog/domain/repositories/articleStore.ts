@@ -9,7 +9,7 @@ interface ArticleStore{
     isLoadingArticlesByCategory: boolean;
 
     //Action
-    getArticles(currentPage:Number, pageSize:Number): Promise<Articles>;
+    getArticles(currentPage:number, pageSize:number): Promise<Articles>;
     getArticle(slug: string) : Promise<Articles>;
     getArticlesByCategory(slug: string): Promise<Articles>;
 }

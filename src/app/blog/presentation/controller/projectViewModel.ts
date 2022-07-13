@@ -4,7 +4,7 @@ import { getProjectsUseCase } from "../../domain/usecases/project/getProjectsUse
 import { getProjectDetailsUseCase } from "../../domain/usecases/project/getProjectDetailsUseCase";
 
 function useProjectViewModel (store: ProjectStore){
-    const getProjects=useCallback(function(currentPage:Number,pageSize:Number){
+    const getProjects=useCallback(function(currentPage:number,pageSize:number){
         getProjectsUseCase({
             getProjects:store.getProjects,
         },currentPage,pageSize);

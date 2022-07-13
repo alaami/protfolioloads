@@ -1,16 +1,13 @@
-import {useEffect, useRef, useState } from "react";
+import {useEffect, useRef} from "react";
 
 import { usePageViewModel } from "../../controller/pageViewModel";
 import { usePageStoreImplementation } from "../../../data/repositories/pageStoreImplementation";
 import ReactMarkdown from "react-markdown";
 import { useLocation, useParams } from "react-router-dom";
 import Stack from "@mui/material/Stack";
-import Paper from "@mui/material/Paper";
 import CardMedia from "@mui/material/CardMedia";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { customTheme } from "../../../../../main/utils/customTheme";
-import { ThemeProvider } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import rehypeRaw from 'rehype-raw'
 import ProjectView from "../project/projectView";

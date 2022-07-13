@@ -20,7 +20,7 @@ PageStoreState
 const dispatch= useDispatch();
 
 const loadPage=useCallback(
-    (pathname: String,locale:String) =>getPageAction(pathname,locale)(dispatch),
+    (pathname: string,locale:string) =>getPageAction(pathname,locale)(dispatch),
     [dispatch]
 );
 const resetPageStore=useCallback(

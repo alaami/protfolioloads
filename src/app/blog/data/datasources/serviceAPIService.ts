@@ -1,7 +1,7 @@
 import type { Service, Services } from '../../domain/entities/serviceEntity';
 import axios from 'axios';
 import{create} from '../models/serviceModel'
-const qs = require('qs');
+import qs from 'qs';
 const query = qs.stringify({
   populate: ['image'], 
 }, {
@@ -19,7 +19,7 @@ function getServices(): Promise<Services> {
 }
 
 
-function getServiceDetails(slug:String): Promise<Services> {
+function getServiceDetails(slug:string): Promise<Services> {
 
   const url=`${process.env.REACT_APP_BACKEND_URL}/api/articles?${queryDetails}&filters[slug]=`+slug;
 

@@ -1,7 +1,7 @@
 import type { Project, Projects } from '../../domain/entities/projectEntity';
 import axios from 'axios';
 import{create} from '../models/projectModel'
-const qs = require('qs');
+import qs from 'qs';
 const query = qs.stringify({
   populate: ['image'], 
 }, {
@@ -14,7 +14,7 @@ const queryDetails = qs.stringify({
   encodeValuesOnly: true,
 });
 
-function getProjects(pageNumber:Number, pageSize:Number): Promise<Projects> {
+function getProjects(pageNumber:number, pageSize:number): Promise<Projects> {
   const query = qs.stringify(
     {
       populate: ['image'],
@@ -32,7 +32,7 @@ function getProjects(pageNumber:Number, pageSize:Number): Promise<Projects> {
 }
 
 
-function getProjectDetails(slug:String): Promise<Projects> {
+function getProjectDetails(slug:string): Promise<Projects> {
 
   const url=`${process.env.REACT_APP_BACKEND_URL}/api/projects?${queryDetails}&filters[slug]=`+slug;
 

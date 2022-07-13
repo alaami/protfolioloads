@@ -5,6 +5,6 @@ interface MenuStore{
     isLoadingMenus: boolean;
 
     //Action
-    loadInitialMenus(locale:String): Promise<Menus>; 
+    loadInitialMenus(locale:string): Promise<Menus>; 
 }
 export {MenuStore}
