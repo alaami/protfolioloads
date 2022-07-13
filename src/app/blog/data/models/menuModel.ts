@@ -1,5 +1,5 @@
-import type { PrimaryMenu } from "../../domain/entities/menuEntity";
-const create= (menu:PrimaryMenu) => {
-    return ({menu:menu.menu});};
+import type { Menus } from "../../domain/entities/menuEntity";
+const create= (menu:Menus) => {
+    return ({data:menu.data});};
 
 export {create}

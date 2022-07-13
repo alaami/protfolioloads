@@ -1,11 +1,10 @@
 import AppBar from '@mui/material/AppBar';
-import { useMenuViewModel } from "../../controller/ViewModel";
+import { useMenuViewModel } from "../../controller/menuViewModel";
 import { useMenuStoreImplementation } from "../../../data/repositories/menuStoreImplementation";
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import Box  from '@mui/material/Box';
 import { Link } from 'react-router-dom';
-import { Item } from '../../../domain/entities/menuEntity';
 import { useEffect, useRef, useState } from 'react';
 import  { PopperPlacementType } from '@mui/material/Popper';
 import MenuList from '@mui/material/MenuList';
@@ -13,6 +12,8 @@ import { Drawer, IconButton, Toolbar } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import ReactCountryFlag from 'react-country-flag';
 import { StyledSelect } from '../../../../../main/utils/customStyle';
+import {MenuElem } from '../../../domain/entities/menuEntity';
+import CardMedia from '@mui/material/CardMedia';
 
   export default function Header(props:any) {
    // const [locale, setLocale] = useState(""); 
@@ -46,9 +47,12 @@ import { StyledSelect } from '../../../../../main/utils/customStyle';
     } = useMenuViewModel(store);
 
     useEffect(()=>{
-        getMenus();
+      if(locale!=''){
+        getMenus(locale);
+      }
+        
 
-    },[getMenus]);
+    },[getMenus,locale]);
    
   
     useEffect(() => {
@@ -67,11 +71,14 @@ import { StyledSelect } from '../../../../../main/utils/customStyle';
       };
     }, []);
    const lang= locale.split("-");
+
+
    //Mobile logic
    const [state, setState] = useState({
     mobileView: false,
     drawerOpen: false,
   });
+
   const { mobileView } = state;
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
   const [placement, setPlacement] = useState<PopperPlacementType>();
@@ -122,18 +129,15 @@ import { StyledSelect } from '../../../../../main/utils/customStyle';
 
   
     const displayDesktop = (menu:any) => {
+      const imageUrl = "/logo-236x100.png";
       return (
 <>
     <Box sx={{display: 'flex' }}>
-        <Box sx={{ width: '20%'}}>
-        <ul className="uk-navbar-nav">
-            <li>
-             <Link to="/">Strapi Blog</Link>
-            </li>
-        </ul>  
+        <Box sx={{ padding:2,width: '20%'}}>
+             <img src={imageUrl} alt='logo' />
         </Box>
         <Box sx={{ display: 'flex' ,width: '60%'}}>
-        {menu.items.map((item:Item) => {
+        {menu[0].attributes.menu[0].Menu.map((item:MenuElem) => {
             return (
                 <MenuItem
                 component={Link}
@@ -147,7 +151,7 @@ import { StyledSelect } from '../../../../../main/utils/customStyle';
             );
           })}
           </Box>
-          <Box sx={{ display: 'flex', alignSelf:'flex-end'}}>
+          <Box sx={{ display: 'flex', alignSelf:'center'}}>
             <Box sx={{ alignSelf:'center'}}>
               <ReactCountryFlag
                 countryCode={lang[1]}
@@ -203,7 +207,7 @@ import { StyledSelect } from '../../../../../main/utils/customStyle';
           >
             
             <MenuList>
-            {menu.items.map((item:Item) => {
+            {menu[0].attributes.menu[0].Menu.map((item:MenuElem)=> {
             return (
                 <MenuItem
                 component={Link}

@@ -1,10 +1,10 @@
-import type { PrimaryMenu } from "../entities/menuEntity";
+import type { Menus } from "../entities/menuEntity";
 interface MenuStore{
     // State
-    menu: PrimaryMenu | undefined;
+    menu: Menus | undefined;
     isLoadingMenus: boolean;
 
     //Action
-    loadInitialMenus(): Promise<PrimaryMenu>; 
+    loadInitialMenus(locale:String): Promise<Menus>; 
 }
 export {MenuStore}

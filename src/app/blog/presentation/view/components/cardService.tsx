@@ -14,7 +14,7 @@ const CardService = ({ service }:any) => {
       : process.env.REACT_APP_BACKEND_URL + service.attributes.image.data.attributes.url;
   return (
 
-      <Card sx={{ maxWidth: 345, height: 470,  marginBottom:5 }}>
+    <Card sx={{ maxWidth: 345, height: 470, marginBottom: 5 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -23,21 +23,21 @@ const CardService = ({ service }:any) => {
           alt="green iguana"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-          {service.attributes.title}
+          <Typography gutterBottom variant="h5" sx={{ fontWeight: 'bold' }} component="div">
+            {service.attributes.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-          {service.attributes.description}
-          
+            {service.attributes.description}
+
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Link style={{ textDecoration: 'none' }}
-            to={`/about`}
-            >
-      <StyledButton variant="outlined">DETAILS</StyledButton>
-      </Link>
+        <Link style={{ textDecoration: 'none' }}
+          to={`/about`}
+        >
+          <StyledButton variant="outlined">DETAILS</StyledButton>
+        </Link>
       </CardActions>
     </Card>
   );

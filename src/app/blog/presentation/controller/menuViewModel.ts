@@ -3,10 +3,10 @@ import type { MenuStore } from "../../domain/repositories/menuStore";
 import { getMenusUseCase } from "../../domain/usecases/getMenusUseCase";
 
 function useMenuViewModel (store: MenuStore){
-    const getMenus=useCallback(function(){
+    const getMenus=useCallback(function(locale:string){
         getMenusUseCase({
             loadInitialMenus:store.loadInitialMenus
-        });
+        }, locale);
     },
     [store.loadInitialMenus]
     );

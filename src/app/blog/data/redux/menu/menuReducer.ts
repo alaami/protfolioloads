@@ -14,7 +14,7 @@ const INITIAL_STATE: MenuStoreStoreState = {
         case actionTypes.GET_MENUS:
             return {...state, isLoadingMenus:true};
         case actionTypes.GET_MENUS_SUCCESS:
-            return {...state, isLoadingMenus:false, menu:action.menus.menu};
+            return {...state, isLoadingMenus:false, menu:action.menus.data};
         default:
             return state;
     }

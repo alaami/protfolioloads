@@ -21,7 +21,7 @@ const CardProject = ({ project }:any) => {
     <Paper sx={{margin:'auto', padding:2,marginBottom:5, marginTop:1 }} elevation={0}>
           <Stack>
           <Box>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography gutterBottom variant="h4" sx={{fontWeight:'bold'}}  component="div">
             {project.attributes.title}
             </Typography>
             <Typography variant="body1" color="text.secondary">

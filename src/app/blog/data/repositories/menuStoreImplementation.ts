@@ -20,7 +20,7 @@ MenuStoreStoreState
 const dispatch= useDispatch();
 
 const loadInitialMenus=useCallback(
-    () =>getMenusAction()(dispatch),
+    (locale:String) =>getMenusAction(locale)(dispatch),
     [dispatch]
 );
 return {

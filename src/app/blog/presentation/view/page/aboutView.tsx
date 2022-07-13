@@ -32,7 +32,9 @@ const AboutView = (props:any) => {
             resetPageStore();
             firstRender.current = false;
           }
-        getPage(pathname,locale);
+        if(locale!=''){
+         getPage(pathname,locale);
+        }
     },[getPage,locale]);
     
     var imageUrl =''
@@ -83,7 +85,7 @@ const AboutView = (props:any) => {
                                        ? service.image.data.attributes.url
                                        : process.env.REACT_APP_BACKEND_URL + service.image.data.attributes.url;
                         return (
-                            <Grid item xs={12} md={4}>
+                            <Grid item xs={12} md={4} key={`service__${service.title}`}>
                             <Paper sx={{height:200,margin:'auto', padding:5, bgcolor:'inherit',color:'inherit' }} elevation={0}>
                                 <Stack>
                                     <Box >

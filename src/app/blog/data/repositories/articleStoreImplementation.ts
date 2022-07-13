@@ -19,16 +19,16 @@ ArticleStoreState
 const dispatch= useDispatch();
 
 const getArticles=useCallback(
-    (currentPage:Number,pageSize:Number) =>getArticlesAction(currentPage,pageSize)(dispatch),
+    (currentPage:number,pageSize:number) =>getArticlesAction(currentPage,pageSize)(dispatch),
     [dispatch]
 );
 
 const getArticle=useCallback(
-    (slug: String) =>getArticleDetailsAction(slug)(dispatch),
+    (slug: string) =>getArticleDetailsAction(slug)(dispatch),
     [dispatch]
 );
 const getArticlesByCategory=useCallback(
-    (slug: String) =>getArticlesByCategoryAction(slug)(dispatch),
+    (slug: string) =>getArticlesByCategoryAction(slug)(dispatch),
     [dispatch]
 );
 return {

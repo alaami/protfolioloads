@@ -33,7 +33,9 @@ const HomeView = (props:any) => {
             resetPageStore();
             firstRender.current = false;
           }
-        getPage(pathname,locale);
+          if(locale!=''){
+            getPage(pathname,locale);
+          }
     },[getPage,locale]);
     
     return(
@@ -42,20 +44,20 @@ const HomeView = (props:any) => {
             <h1>Loading Page {pathname}</h1>
         ):
         (page!=undefined)  && (  
-            <Container maxWidth="xl">
+            <Container sx={{marginTop:10}} maxWidth="xl">
                 <Bio content={page.attributes.blocks[0].body}/>
                 <Divider/>
                 <Box
                     sx={{
                     display: 'flex',
                     justifyContent: 'space-between',
-                    m: 1,
+                    marginTop:2,                    
                     bgcolor: 'background.paper',
                     borderRadius: 1,
                     }}
                 >  
                 <Box>          
-                    <Typography variant="h6" component="div" align="center" gutterBottom>
+                    <Typography variant="h4" sx={{fontWeight:'bold', color:'#000'}} component="div" align="center" gutterBottom>
                     {page.attributes.blocks[2].sectionHeader[0].title}
                     </Typography> 
                 </Box> 
@@ -71,11 +73,11 @@ const HomeView = (props:any) => {
                 <Divider sx={{marginTop:5} }/>
                 <Box sx={{ width: '100%', maxWidth: 500,  marginTop:5,p: 1,
                     m: 1, }}>
-                <Typography variant="h6" component="div" align="left" gutterBottom>
+                <Typography variant="h4" sx={{fontWeight:'bold', color:'#000'}} component="div" align="left" gutterBottom>
                 {page.attributes.blocks[2].sectionHeader[1].title}
                 </Typography>
                 </Box>
-                <Grid  container spacing={25}>
+                <Grid  sx={{display:"flex", alignContent:"space-around"}} container spacing={0}>
                 <ServiceView />
                 </Grid>
                 <Divider/>
@@ -92,7 +94,7 @@ const HomeView = (props:any) => {
                     }}
                 > 
                 <Box>          
-                    <Typography variant="h6" component="div" align="center" gutterBottom>
+                    <Typography variant="h4" sx={{fontWeight:'bold'}}  align="center" gutterBottom>
                     {page.attributes.blocks[2].sectionHeader[2].title}
                     </Typography> 
                 </Box>  

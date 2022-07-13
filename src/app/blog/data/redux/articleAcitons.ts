@@ -1,6 +1,6 @@
 import { getArticles, getArticleDetails, getArticlesByCategory } from '../datasources/articleAPIService';
 import * as actionTypes from "../redux/articleActionTypes"
-const getArticlesAction =(currentPage:Number, pageSize:Number)=> (dispatch:any)=>{
+const getArticlesAction =(currentPage:number, pageSize:number)=> (dispatch:any)=>{
 dispatch({type:actionTypes.GET_ARTICLES});
 
 return getArticles(currentPage,pageSize).then((articles)=>{
@@ -8,7 +8,7 @@ return getArticles(currentPage,pageSize).then((articles)=>{
     return articles;
 });
 };
-const getArticleDetailsAction =(slug : String)=> (dispatch:any)=>{
+const getArticleDetailsAction =(slug : string)=> (dispatch:any)=>{
     dispatch({type:actionTypes.GET_ARTICLE_DETAILS});
     
     return getArticleDetails(slug).then((article)=>{
@@ -16,7 +16,7 @@ const getArticleDetailsAction =(slug : String)=> (dispatch:any)=>{
         return article;
     });
 };
-const getArticlesByCategoryAction =(slug : String)=> (dispatch:any)=>{
+const getArticlesByCategoryAction =(slug : string)=> (dispatch:any)=>{
     dispatch({type:actionTypes.GET_ARTICLES_ByCategory});
     
     return getArticlesByCategory(slug).then((articles)=>{

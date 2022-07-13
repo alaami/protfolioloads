@@ -59,7 +59,7 @@ const StyledSliderContentBox= styled(Box)(() => ({
 const StyledPagePaper= styled(Paper)(() => ({
   padding:10, 
   margin:'auto',
-  marginTop:20,
+  marginTop:40,
 }));
 
 const StyledButton= styled(Button)(({theme}) => ({

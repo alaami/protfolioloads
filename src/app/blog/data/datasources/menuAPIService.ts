@@ -1,16 +1,16 @@
-import type { PrimaryMenu } from '../../domain/entities/menuEntity';
+import type { Menus } from '../../domain/entities/menuEntity';
 import axios from 'axios';
 import{create} from '../models/menuModel'
 
 const qs = require('qs');
 const query = qs.stringify({
-  sort: ['order:asc']
+  populate: ['menu.Menu'], 
 }, {
   encodeValuesOnly: true,
 });
     
-function getMenus(): Promise<PrimaryMenu> {
-     const url=`${process.env.REACT_APP_BACKEND_URL}/api/menus/primary-menu?nested&${query}`;
+function getMenus(locale:String): Promise<Menus> {
+     const url=`${process.env.REACT_APP_BACKEND_URL}/api/menus?&${query}&locale=${locale}`;
 
     return axios.get(url).then(res=>create(res.data));
 }

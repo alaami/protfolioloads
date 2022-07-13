@@ -34,7 +34,9 @@ const PortfolioView = (props:any) => {
             resetPageStore();
             firstRender.current = false;
           }
-        getPage(pathname,locale);
+        if(locale!=''){
+         getPage(pathname,locale);
+        }
     },[getPage,locale]);
     
     var imageUrl =''

@@ -1,23 +1,45 @@
-    export interface Item {
-        id: number;
-        order: number;
-        title: string;
-        url: string;
-        target?: any;
+export interface MenuElem {
+    id: number;
+    order: number;
+    title: string;
+    url: string;
+    target?: any;
+}
+
+export interface Menu {
+    id: number;
+    __component: string;
+    Menu: MenuElem[];
+}
+   export interface Attributes {
         createdAt: Date;
         updatedAt: Date;
-        parent?: any;
-    }
-
-    export interface Menu {
-        id: number;
+        publishedAt: Date;
+        locale: string;
         title: string;
-        slug: string;
-        createdAt: Date;
-        updatedAt: Date;
-        items: Item[];
+        menu: Menu[];
     }
 
-    export interface PrimaryMenu {
-        menu: Menu;
+    export interface MenuData {
+        id: number;
+        attributes: Attributes;
     }
+
+    export interface Pagination {
+        page: number;
+        pageSize: number;
+        pageCount: number;
+        total: number;
+    }
+
+    export interface Meta {
+        pagination: Pagination;
+    }
+
+    export interface Menus {
+        data: MenuData[];
+        meta?: Meta;
+    }
+
+    
+    
