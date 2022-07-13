@@ -1,6 +1,6 @@
 import { getPage } from "../../datasources/pageAPIService";
 import * as actionTypes from "./pageActionTypes"
-const getPageAction =(pathname: String,locale:String)=> (dispatch:any)=>{
+const getPageAction =(pathname: string,locale:string)=> (dispatch:any)=>{
 dispatch({type:actionTypes.GET_PAGE});
 
 return getPage(pathname,locale).then((page)=>{

@@ -5,7 +5,7 @@ interface PageStore{
     isLoadingPage: boolean;
 
     //Action
-    loadPage(pathname: String, locale:String): Promise<Page>; 
+    loadPage(pathname: string, locale:string): Promise<Page>; 
     resetPageStore():void;
 }
 export {PageStore}

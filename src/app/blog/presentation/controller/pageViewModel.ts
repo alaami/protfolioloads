@@ -4,7 +4,7 @@ import { getPageUseCase } from "../../domain/usecases/page/getPageUseCase";
 import { resetPageStoreUseCase } from "../../domain/usecases/page/resetPageStoreUseCase";
 
 function usePageViewModel (store: PageStore){
-    const getPage=useCallback(function(pathname: String,locale:String){
+    const getPage=useCallback(function(pathname: string,locale:string){
         getPageUseCase({
             loadPage:store.loadPage
         },pathname,locale);

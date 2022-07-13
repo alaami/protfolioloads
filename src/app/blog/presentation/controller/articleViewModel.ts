@@ -5,7 +5,7 @@ import {getArticleDetailsUseCase} from "../../domain/usecases/article/getArticle
 import {getArticlesByCategoryUseCase} from "../../domain/usecases/article/getArticlesByCategoryUseCase";
 
 function useArticlesViewModel (store: ArticleStore){
-    const getArticles=useCallback(function(currentPage:Number,pageSize:Number){
+    const getArticles=useCallback(function(currentPage:number,pageSize:number){
         getArticlesUseCase({
             getArticles:store.getArticles,
         },currentPage,pageSize);

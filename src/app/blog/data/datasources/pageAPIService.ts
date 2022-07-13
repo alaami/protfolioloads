@@ -1,7 +1,7 @@
 import type { Page } from '../../domain/entities/pageEntity';
 import axios from 'axios';
 import{create} from '../models/pageModel'
-const qs = require('qs');
+import qs from 'qs';
 const queryDetails = qs.stringify({
   populate: 'blocks.servicecard.image,blocks.sectionHeader,blocks.action,cover', 
   //populate=*,blocks.servicecard
@@ -9,7 +9,7 @@ const queryDetails = qs.stringify({
   encodeValuesOnly: true,
 });
     
-function getPage(pathname:String,locale:String): Promise<Page> {
+function getPage(pathname:string,locale:string): Promise<Page> {
      const url=`${process.env.REACT_APP_BACKEND_URL}/api${pathname}?${queryDetails}&locale=${locale}`;
 
     return axios.get(url).then(res=>create(res.data));

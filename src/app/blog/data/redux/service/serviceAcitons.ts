@@ -8,7 +8,7 @@ return getServices().then((services)=>{
     return services;
 });
 };
-const getServiceDetailsAction =(slug : String)=> (dispatch:any)=>{
+const getServiceDetailsAction =(slug : string)=> (dispatch:any)=>{
     dispatch({type:actionTypes.GET_SERVICE_DETAILS});
     
     return getServiceDetails(slug).then((service)=>{
