@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router";
 import { useArticlesStoreImplementation } from "../../../data/repositories/articleStoreImplementation";
 import { useArticlesViewModel } from "../../controller/articleViewModel";
@@ -15,7 +15,7 @@ const ArticleCategory = () => {
 
     } = useArticlesViewModel(store);
     let { slug } = useParams();
-  React.useEffect(()=>{
+  useEffect(()=>{
     if(slug!=undefined){
       console.log("USE EFFECT FUNCTION TRIGGERED");
       getArticlesByCategory(slug);

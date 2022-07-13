@@ -1,10 +1,10 @@
 import type { ArticleStore } from "../../repositories/articleStore";
 
 
-type GetArticlesStore= Pick <ArticleStore, "loadInitialArticles">;
+type GetArticlesStore= Pick <ArticleStore, "getArticles">;
 
-const getArticlesUseCase= (store: GetArticlesStore)=>{
-    store.loadInitialArticles();
+const getArticlesUseCase= (store: GetArticlesStore,currentPage:Number,pageSize:Number)=>{
+    store.getArticles(currentPage,pageSize);
 }
 
 export {getArticlesUseCase};

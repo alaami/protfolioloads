@@ -2,7 +2,7 @@ import type { AnyAction } from "redux";
 import type { ArticleStore } from "../../domain/repositories/articleStore";
 import * as actionTypes from "../redux/articleActionTypes"
 
-type ArticleStoreState = Omit<ArticleStore,"loadInitialArticles" | "getArticle" | "getArticlesByCategory">
+type ArticleStoreState = Omit<ArticleStore,"getArticles" | "getArticle" | "getArticlesByCategory">
 
 const INITIAL_STATE: ArticleStoreState = {
     articles: undefined,

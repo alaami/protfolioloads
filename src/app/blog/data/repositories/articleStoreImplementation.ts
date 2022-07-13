@@ -1,4 +1,4 @@
-import React from "react";
+import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import type { AppRootState } from "../../../../main/data/appStoreImplementation";
@@ -18,17 +18,17 @@ ArticleStoreState
 
 const dispatch= useDispatch();
 
-const loadInitialArticles=React.useCallback(
-    () =>getArticlesAction()(dispatch),
+const getArticles=useCallback(
+    (currentPage:number,pageSize:number) =>getArticlesAction(currentPage,pageSize)(dispatch),
     [dispatch]
 );
 
-const getArticle=React.useCallback(
-    (slug: String) =>getArticleDetailsAction(slug)(dispatch),
+const getArticle=useCallback(
+    (slug: string) =>getArticleDetailsAction(slug)(dispatch),
     [dispatch]
 );
-const getArticlesByCategory=React.useCallback(
-    (slug: String) =>getArticlesByCategoryAction(slug)(dispatch),
+const getArticlesByCategory=useCallback(
+    (slug: string) =>getArticlesByCategoryAction(slug)(dispatch),
     [dispatch]
 );
 return {
@@ -38,7 +38,7 @@ categoryArticles,
 isLoadingArticles,
 isLoadingSingleArticle,
 isLoadingArticlesByCategory,
-loadInitialArticles,
+getArticles,
 getArticle,
 getArticlesByCategory,
 };

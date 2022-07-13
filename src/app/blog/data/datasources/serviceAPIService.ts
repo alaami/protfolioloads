@@ -13,8 +13,6 @@ const queryDetails = qs.stringify({
 }, {
   encodeValuesOnly: true,
 });
-
-console.log(query);
 function getServices(): Promise<Services> {
      const url=`${process.env.REACT_APP_BACKEND_URL}/api/services?${query}`;
     return axios.get(url).then(res=>create(res.data));

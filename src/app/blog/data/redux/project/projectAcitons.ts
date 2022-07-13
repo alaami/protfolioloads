@@ -1,9 +1,9 @@
 import { getProjectDetails, getProjects } from "../../datasources/projectAPIService"; 
 import * as actionTypes from "../project/projectActionTypes"
-const getProjectsAction =()=> (dispatch:any)=>{
+const getProjectsAction =(currentPage:Number, pageSize:Number)=> (dispatch:any)=>{
 dispatch({type:actionTypes.GET_PROJECTS});
 
-return getProjects().then((projects)=>{
+return getProjects(currentPage,pageSize).then((projects)=>{
     dispatch({type: actionTypes.GET_PROJECTS_SUCCESS, projects});
     return projects;
 });

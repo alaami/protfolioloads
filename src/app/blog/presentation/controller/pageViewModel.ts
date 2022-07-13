@@ -1,19 +1,28 @@
-import React from "react";
+import React, { useCallback } from "react";
 import type { PageStore } from "../../domain/repositories/pageStore"; 
 import { getPageUseCase } from "../../domain/usecases/page/getPageUseCase";
+import { resetPageStoreUseCase } from "../../domain/usecases/page/resetPageStoreUseCase";
 
 function usePageViewModel (store: PageStore){
-    const getPage=React.useCallback(function(pathname: String){
+    const getPage=useCallback(function(pathname: String,locale:String){
         getPageUseCase({
             loadPage:store.loadPage
-        },pathname);
+        },pathname,locale);
     },
     [store.loadPage]
+    );
+    const resetPageStore=useCallback(function(){
+        resetPageStoreUseCase({
+            resetPageStore:store.resetPageStore
+        });
+    },
+    [store.resetPageStore]
     );
 return {
     page: store.page?.data,
     isLoadingPage: typeof store.page === "undefined" || store.isLoadingPage,
     getPage,
+    resetPageStore,
 };
 }
 export{usePageViewModel}

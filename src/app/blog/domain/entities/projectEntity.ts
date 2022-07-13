@@ -63,12 +63,14 @@
         updatedAt: Date;
         publishedAt: Date;
         image: Image;
-        content: any[];
+        cover: Image;
+        blocks: Block[];
     }
 
     export interface Project {
         id: number;
         attributes: Attributes;
+
     }
 
     export interface Pagination {
@@ -87,4 +89,39 @@
         meta?: Meta;
     }
 
-
+    export interface Block {
+        id: number;
+        __component: string;
+        body: string;
+        files: Files;
+        buttons: Button[];
+    }
+    export interface Files {
+        data: DataFiles[];
+    }
+    export interface DataFiles {
+        id: number;
+        attributes: AttributesFiles;
+    }
+    export interface AttributesFiles {
+        name: string;
+        alternativeText: string;
+        caption: string;
+        width: number;
+        height: number;
+        formats: Formats;
+        hash: string;
+        ext: string;
+        mime: string;
+        size: number;
+        url: string;
+        previewUrl?: any;
+        provider: string;
+        provider_metadata?: any;
+        createdAt: Date;
+        updatedAt: Date;
+    }
+    export interface Button {
+        id: number;
+        title: string;
+    }

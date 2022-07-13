@@ -4,6 +4,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
+import { Link } from "react-router-dom";
+import { StyledButton } from "../../../../../main/utils/customStyle";
 
 const CardService = ({ service }:any) => {
    const imageUrl =
@@ -12,7 +14,7 @@ const CardService = ({ service }:any) => {
       : process.env.REACT_APP_BACKEND_URL + service.attributes.image.data.attributes.url;
   return (
 
-      <Card sx={{ maxWidth: 345, height: 420, margin:'auto', marginBottom:5, marginTop:5 }}>
+    <Card sx={{ maxWidth: 345, height: 470, marginBottom: 5 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -21,17 +23,21 @@ const CardService = ({ service }:any) => {
           alt="green iguana"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-          {service.attributes.title}
+          <Typography gutterBottom variant="h5" sx={{ fontWeight: 'bold' }} component="div">
+            {service.attributes.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-          {service.attributes.description}
-          
+            {service.attributes.description}
+
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button sx={{marginTop:4, marginBottom:4}} variant="outlined">DETAILS</Button>
+        <Link style={{ textDecoration: 'none' }}
+          to={`/about`}
+        >
+          <StyledButton variant="outlined">DETAILS</StyledButton>
+        </Link>
       </CardActions>
     </Card>
   );

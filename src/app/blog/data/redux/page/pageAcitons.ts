@@ -1,11 +1,14 @@
 import { getPage } from "../../datasources/pageAPIService";
 import * as actionTypes from "./pageActionTypes"
-const getPageAction =(pathname: String)=> (dispatch:any)=>{
+const getPageAction =(pathname: String,locale:String)=> (dispatch:any)=>{
 dispatch({type:actionTypes.GET_PAGE});
 
-return getPage(pathname).then((page)=>{
+return getPage(pathname,locale).then((page)=>{
     dispatch({type: actionTypes.GET_PAGE_SUCCESS, page});
     return page;
 });
 };
-export {getPageAction}
+const resetPageStoreAction =()=> (dispatch:any)=>{
+    dispatch({type:actionTypes.RESET_PAGE});
+    };
+export {getPageAction,resetPageStoreAction}
