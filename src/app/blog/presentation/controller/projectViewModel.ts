@@ -4,10 +4,10 @@ import { getProjectsUseCase } from "../../domain/usecases/project/getProjectsUse
 import { getProjectDetailsUseCase } from "../../domain/usecases/project/getProjectDetailsUseCase";
 
 function useProjectViewModel (store: ProjectStore){
-    const getProjects=useCallback(function(){
+    const getProjects=useCallback(function(currentPage:Number,pageSize:Number){
         getProjectsUseCase({
             getProjects:store.getProjects,
-        });
+        },currentPage,pageSize);
     },
     [store.getProjects]
     );
@@ -21,6 +21,7 @@ function useProjectViewModel (store: ProjectStore){
     );
 return {
     projects: store.projects?.data,
+    projectMeta:store.projects?.meta,
     project:store.project?.data,
     isLoadingProjects: typeof store.projects === "undefined" || store.isLoadingProjects,
     isLoadingSingleProject: typeof store.project === "undefined" || store.isLoadingSingleProject,

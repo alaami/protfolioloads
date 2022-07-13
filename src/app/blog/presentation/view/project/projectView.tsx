@@ -1,25 +1,31 @@
-import { useEffect } from "react";
+import React,{ useEffect, useState } from "react";
 
 import { useProjectViewModel } from "../../controller/projectViewModel";
 import { useProjectStoreImplementation } from "../../../data/repositories/projectStoreImplementation";
 import CardProject from "../components/cardProject";
-import  Grid  from "@mui/material/Grid"
-import { Stack } from "@mui/material";
-const ProjectView = () => {
+import Pagination from "@mui/material/Pagination";
+const ProjectView = ({filter}:any) => {
     const store = useProjectStoreImplementation ();
-    
+    const [currentPage, setPage] = useState(1);
+    let totalPage=0;
+    const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+      setPage(value);
+    };
     const {
         getProjects,
         projects,
+        projectMeta,
         isLoadingProjects
 
     } = useProjectViewModel(store);
 
     useEffect(()=>{
-      getProjects();
-    },[getProjects]);
+      getProjects(currentPage,filter.pageSize);
+    },[getProjects,currentPage]);
 
-
+    if (projects!=undefined && projectMeta!=undefined){
+      totalPage=Math.round(projectMeta?.pagination.total/filter.pageSize);
+    }
 
     return(
         <>       
@@ -36,6 +42,8 @@ const ProjectView = () => {
               );
             })
           )}
+         {totalPage>1 ? (<Pagination sx={{margin:'auto',width:'30%'}} count={totalPage} variant="outlined" color="primary" page={currentPage} onChange={handleChange}  />):null
+          }
         </>
     );
 };

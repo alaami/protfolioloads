@@ -1,4 +1,4 @@
-import React from "react";
+import {useEffect, useRef } from "react";
 
 import { usePageViewModel } from "../../controller/pageViewModel";
 import { usePageStoreImplementation } from "../../../data/repositories/pageStoreImplementation";
@@ -8,17 +8,27 @@ import ReactMarkdown from "react-markdown";
 const ContactView = () => {
     const store = usePageStoreImplementation ();
     const pathname = useLocation().pathname;
+    const firstRender = useRef(true);
+    var locale="";
     
     const {
         getPage,
         page,
-        isLoadingPage
+        isLoadingPage,
+        resetPageStore,
 
     } = usePageViewModel(store);
-
-    React.useEffect(()=>{
-        getPage(pathname);
-    },[getPage]);
+    useEffect(() => {
+        locale=window.localStorage.getItem('lang')!;
+      }, []);
+    
+        useEffect(()=>{   
+            if (firstRender.current) {
+                resetPageStore();
+                firstRender.current = false;
+              }
+            getPage(pathname,locale);
+        },[getPage]);
     
 
 

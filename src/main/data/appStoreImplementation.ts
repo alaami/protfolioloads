@@ -6,6 +6,7 @@ import { categoryReducer } from "../../app/blog/data/redux/category/categoryRedu
 import { pageReducer } from "../../app/blog/data/redux/page/pageReducer";
 import { serviceReducer } from "../../app/blog/data/redux/service/serviceReducer";
 import { projectReducer } from "../../app/blog/data/redux/project/projectReducer";
+import { menuReducer } from "../../app/blog/data/redux/menu/menuReducer";
 
 const rootReducer = combineReducers({
   articles: articleReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   page: pageReducer,
   services:serviceReducer,
   projects: projectReducer,
+  menus: menuReducer
 });
 
 const appStoreImplementation = createStore(rootReducer, applyMiddleware(thunk));

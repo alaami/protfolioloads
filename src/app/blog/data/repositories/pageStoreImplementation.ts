@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import type { AppRootState } from "../../../../main/data/appStoreImplementation";
@@ -6,7 +6,7 @@ import type { PageStore } from "../../domain/repositories/pageStore";
 
 import type { PageStoreState } from "../redux/page/pageReducer";
 
-import { getPageAction } from "../redux/page/pageAcitons";
+import { getPageAction, resetPageStoreAction } from "../redux/page/pageAcitons";
 
 const pageSelector = (state: AppRootState ) =>state.page;
 
@@ -19,14 +19,20 @@ PageStoreState
 
 const dispatch= useDispatch();
 
-const loadPage=React.useCallback(
-    (pathname: String) =>getPageAction(pathname)(dispatch),
+const loadPage=useCallback(
+    (pathname: String,locale:String) =>getPageAction(pathname,locale)(dispatch),
     [dispatch]
 );
+const resetPageStore=useCallback(
+    () =>resetPageStoreAction()(dispatch),
+    [dispatch]
+);
+
 return {
 page,
 isLoadingPage,
 loadPage,
+resetPageStore,
 };
 };
 export { usePageStoreImplementation };

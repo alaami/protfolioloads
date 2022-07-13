@@ -28,11 +28,11 @@ const ServiceView = () => {
         (services!=undefined)  &&  (                    
             services.map((service:any) => {
               return (
-                <Grid item xs={12} md={4}>
-                <CardService
-                  service={service}
-                  key={`service__${service.attributes.slug}`}
-                />
+                <Grid item xs={12} md={4} key={`service__${service.attributes.slug}`}>
+                  <CardService
+                    service={service}
+                    key={`service__${service.attributes.slug}`}
+                  />
                 </Grid>
               );
             })
