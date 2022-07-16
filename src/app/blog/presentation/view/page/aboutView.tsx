@@ -39,7 +39,10 @@ const AboutView = (props:any) => {
     
     var imageUrl =''
     if(page!=undefined && !firstRender.current){
-         imageUrl = process.env.REACT_APP_IMAGES_HOST + page.attributes.cover.data.attributes.url;
+         imageUrl =
+        process.env.NODE_ENV !== "development"
+          ? page.attributes.cover.data.attributes.url
+          : process.env.REACT_APP_IMAGES_HOST + page.attributes.cover.data.attributes.url;
     }
   
     return(
