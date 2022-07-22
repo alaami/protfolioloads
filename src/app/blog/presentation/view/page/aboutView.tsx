@@ -70,7 +70,6 @@ const AboutView = (props:any) => {
                 </CardMedia>
                 <Box sx={{margin:'auto', padding:10}}>
                 <ReactMarkdown rehypePlugins={[rehypeRaw]}children={page.attributes.blocks[1].body} />
-                {page.attributes.blocks[1].body}
                 </Box>
                     <Box sx={{          display: 'flex',
                         alignItems: 'flex-start',
@@ -83,7 +82,7 @@ const AboutView = (props:any) => {
                                   var iconUrl =
                                      process.env.NODE_ENV !== "development"
                                        ? service.image.data.attributes.url
-                                       : process.env.REACT_APP_BACKEND_URL + service.image.data.attributes.url;
+                                       : process.env.REACT_APP_IMAGES_HOST + service.image.data.attributes.url;
                         return (
                             <Grid item xs={12} md={4} key={`service__${service.title}`}>
                             <Paper sx={{height:200,margin:'auto', padding:5, bgcolor:'inherit',color:'inherit' }} elevation={0}>

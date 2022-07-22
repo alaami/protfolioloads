@@ -57,7 +57,7 @@ const HomeView = (props:any) => {
                     }}
                 >  
                 <Box>          
-                    <Typography variant="h4" sx={{fontWeight:'bold', color:'#000'}} component="div" align="center" gutterBottom>
+                    <Typography variant="h4" sx={{fontWeight:'bold', color:'#000'}} component="div" align="left" gutterBottom>
                     {page.attributes.blocks[2].sectionHeader[0].title}
                     </Typography> 
                 </Box> 
@@ -71,13 +71,12 @@ const HomeView = (props:any) => {
                 <ProjectView filter={{currentPage:1, pageSize:2}}/>
                 </Grid>
                 <Divider sx={{marginTop:5} }/>
-                <Box sx={{ width: '100%', maxWidth: 500,  marginTop:5,p: 1,
-                    m: 1, }}>
+                <Box sx={{ width: '100%', maxWidth: 500,  marginTop:2 }}>
                 <Typography variant="h4" sx={{fontWeight:'bold', color:'#000'}} component="div" align="left" gutterBottom>
                 {page.attributes.blocks[2].sectionHeader[1].title}
                 </Typography>
                 </Box>
-                <Grid  sx={{display:"flex", alignContent:"space-around"}} container spacing={0}>
+                <Grid  sx={{display:"flex", alignContent:"space-around"}} container spacing={20}>
                 <ServiceView />
                 </Grid>
                 <Divider/>
@@ -87,14 +86,13 @@ const HomeView = (props:any) => {
                     sx={{
                     display: 'flex',
                     justifyContent: 'space-between',
-                    p: 1,
-                    m: 1,
                     bgcolor: 'background.paper',
                     borderRadius: 1,
+                    marginTop:2  
                     }}
                 > 
                 <Box>          
-                    <Typography variant="h4" sx={{fontWeight:'bold'}}  align="center" gutterBottom>
+                    <Typography variant="h4" sx={{fontWeight:'bold'}}  align="left" gutterBottom>
                     {page.attributes.blocks[2].sectionHeader[2].title}
                     </Typography> 
                 </Box>  

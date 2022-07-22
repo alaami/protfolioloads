@@ -31,6 +31,11 @@ const StyledCardMedia= styled(CardMedia)(() => ({
   marginTop:20,
   marginBottom:20,
 }));
+const StyledServiceCardMedia= styled(CardMedia)(() => ({
+  height:250,
+  margin: 'auto',
+}));
+
 
 const StyledSliderCardMedia= styled(CardMedia)(({theme}) => ({
   height:400,
@@ -75,7 +80,7 @@ const StyledSelect= styled(Select)(() => ({
 
 
 
-export {StyledSelect,StyledButton,StyledPagePaper,StyledCard,StyledCardMedia,StyledDiv,StyledPaper,StyledMainGrid, StyledDivCard,StyledSliderBox,StyledSliderCardMedia,StyledSliderContentBox}
+export {StyledSelect,StyledButton,StyledPagePaper,StyledCard,StyledCardMedia, StyledServiceCardMedia,StyledDiv,StyledPaper,StyledMainGrid, StyledDivCard,StyledSliderBox,StyledSliderCardMedia,StyledSliderContentBox}
 
 
 
