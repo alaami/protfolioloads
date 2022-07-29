@@ -11,7 +11,7 @@ const CardService = ({ service }:any) => {
    const imageUrl = service.attributes.image.data.attributes.url;
   return (
 
-    <Card sx={{ maxWidth: 345, height: 470, marginBottom: 5 }}>
+    <Card sx={{ maxWidth: 345, height: 400, marginBottom: 5 }}>
       <CardActionArea>
         <StyledServiceCardMedia
           image={imageUrl}
@@ -26,13 +26,6 @@ const CardService = ({ service }:any) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Link style={{ textDecoration: 'none' }}
-          to={`/about`}
-        >
-          <StyledButton variant="outlined">DETAILS</StyledButton>
-        </Link>
-      </CardActions>
     </Card>
   );
 };

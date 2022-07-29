@@ -14,6 +14,10 @@ const customTheme = createTheme({
         main: '#64748B',
         contrastText: '#fff',
       },
+      footer: {
+        main: '#000',
+        contrastText: '#fff',
+      },
   
     },
     status: {
@@ -30,9 +34,11 @@ declare module '@mui/material/styles' {
     }
       interface Palette {
         neutral: Palette['primary'];
+        footer: Palette['primary'];
       }
       interface PaletteOptions {
         neutral: PaletteOptions['primary'];
+        footer: PaletteOptions['primary'];
       }
     // allow configuration using `createTheme`
     interface ThemeOptions {

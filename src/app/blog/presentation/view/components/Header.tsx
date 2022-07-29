@@ -11,7 +11,7 @@ import MenuList from '@mui/material/MenuList';
 import { Drawer, IconButton, Toolbar } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import ReactCountryFlag from 'react-country-flag';
-import { StyledSelect } from '../../../../../main/utils/customStyle';
+import { StyledSelect,StyledLogo } from '../../../../../main/utils/customStyle';
 import {MenuElem } from '../../../domain/entities/menuEntity';
 
   export default function Header(props:any) {
@@ -131,9 +131,9 @@ import {MenuElem } from '../../../domain/entities/menuEntity';
       const imageUrl = "/logo-236x100.png";
       return (
 <>
-    <Box sx={{display: 'flex' }}>
-        <Box sx={{ padding:2,width: '20%'}}>
-             <img src={imageUrl} alt='logo' />
+    <Box sx={{display: 'flex', height:100 }}>
+        <Box sx={{ padding:1,width: '20%'}}>
+            <StyledLogo src={imageUrl} alt='logo'/>
         </Box>
         <Box sx={{ display: 'flex' ,width: '60%'}}>
         {menu[0].attributes.menu[0].Menu.map((item:MenuElem) => {
@@ -224,7 +224,7 @@ import {MenuElem } from '../../../domain/entities/menuEntity';
           </Drawer>
     
           <Box sx={{display: 'flex' }}>
-        <Box sx={{ padding:2,width: '100%'}}>
+        <Box sx={{ padding:2,width: '100%', height:'80px'}}>
              <img src={imageUrl} alt='logo' />
         </Box>
         <Box sx={{ display: 'flex', alignSelf:'flex-end'}}>

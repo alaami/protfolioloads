@@ -12,7 +12,7 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import {StyledCard,StyledCardMedia,StyledPaper,StyledMainGrid, StyledDivCard,StyledSliderBox,StyledSliderCardMedia,StyledSliderContentBox} from  "../../../../../main/utils/customStyle"; 
 
 
-const ProjectDetailView = (props:any) => {
+const ProjectDetailView = () => {
     const store = useProjectStoreImplementation ();
     const {
         getProjectsDetails,
@@ -25,13 +25,9 @@ const ProjectDetailView = (props:any) => {
       if(slug!=undefined)
       getProjectsDetails(slug);
     },[getProjectsDetails]);
-    var imageUrl ='';
-    var imageSlideUrl =''
+    let imageUrl:string ='';
     if(project!=undefined){
-         imageUrl =
-        process.env.NODE_ENV !== "development"
-          ? project[0].attributes.image.data.attributes.url
-          : process.env.REACT_APP_BACKEND_URL + project[0].attributes.image.data.attributes.url;
+         imageUrl = project[0].attributes.image.data.attributes.url;
     }
   
     return(
@@ -47,9 +43,7 @@ const ProjectDetailView = (props:any) => {
               <Grid container>
                 <Grid item md={12}>
                 <StyledSliderCardMedia
-                        image={(process.env.NODE_ENV !== "development")
-                        ? project[0].attributes.image.data.attributes.url
-                        : process.env.REACT_APP_BACKEND_URL + project[0].attributes.cover.data.attributes.url}
+                        image={project[0].attributes.cover.data.attributes.url}
                       >
                     <StyledSliderBox>
                       <StyledSliderContentBox>
@@ -64,20 +58,22 @@ const ProjectDetailView = (props:any) => {
             </StyledPaper>
             
             <Grid container spacing={4}>
-              {project[0].attributes.blocks[1].files.data.map(slide => (                   
+              {
+              (project[0].attributes.blocks[1]!=undefined) && (project[0].attributes.blocks[1].files.data!=null) && (
+              project[0].attributes.blocks[1].files.data.map(slide => (                   
                 <Grid item key={slide.attributes.name} xs={12} md={4}>
-                  <StyledCard>
+                  <StyledCard elevation={0}>
                     <StyledDivCard>                     
                       <StyledCardMedia
-                        image={(process.env.NODE_ENV !== "development")
-                        ? slide.attributes.url
-                        : process.env.REACT_APP_BACKEND_URL + slide.attributes.url}
+                        image={ slide.attributes.url}
                       >
                       </StyledCardMedia>
                     </StyledDivCard>
                   </StyledCard>
                 </Grid>
-              ))}
+              )))
+              
+            }
             </Grid>
             <StyledMainGrid container spacing={4}>
             {/* Main content */}
@@ -87,7 +83,10 @@ const ProjectDetailView = (props:any) => {
               </Typography>
               <Divider />
                 <ReactMarkdown>
-                {project[0].attributes.blocks[0].body}
+                {
+                (project[0].attributes.blocks[0]!=undefined) ? (
+                project[0].attributes.blocks[0].body):''
+                }
                 </ReactMarkdown>
             </Grid>
             {/* End main content */}
@@ -104,12 +103,14 @@ const ProjectDetailView = (props:any) => {
               <Typography variant="h6" gutterBottom>
                 Technos
               </Typography>
-              {project[0].attributes.blocks[2].buttons.map(button => (
-              <Button sx={{marginLeft:1, marginTop:1}} variant="contained" color="primary">
+              {
+              (project[0].attributes.blocks[2]!=undefined) && (
+              project[0].attributes.blocks[2].buttons.map(button => (
+              <Button sx={{marginLeft:1, marginTop:1}} key={button.title} variant="contained" color="primary">
                  {button.title}
               </Button>
                 
-              ))}
+              )))}
             </Grid>
             {/* End sidebar */}
           </StyledMainGrid>
