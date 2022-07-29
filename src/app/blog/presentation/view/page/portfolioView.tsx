@@ -76,7 +76,7 @@ const PortfolioView = (props:any) => {
                 {page.attributes.blocks[1].body}
                 </Box>
                 <Grid  container spacing={2}>
-                <ProjectView filter={{pageSize:5}} />
+                <ProjectView filter={{pageSize:8}} />
                 </Grid>
                 </StyledPagePaper>
               </Stack>

@@ -68,7 +68,7 @@ const HomeView = (props:any) => {
                  </Link>
                 </Box>
                 <Grid  container spacing={2}>
-                <ProjectView filter={{currentPage:1, pageSize:2}}/>
+                <ProjectView filter={{currentPage:1, pageSize:4}}/>
                 </Grid>
                 <Divider sx={{marginTop:5} }/>
                 <Box sx={{ width: '100%', maxWidth: 500,  marginTop:2 }}>
@@ -81,7 +81,7 @@ const HomeView = (props:any) => {
                 </Grid>
                 <Divider/>
                 <Submission content={page.attributes.blocks[1]}/>
-                <Divider />
+{/*                 <Divider />
                 <Box
                     sx={{
                     display: 'flex',
@@ -100,7 +100,7 @@ const HomeView = (props:any) => {
                 <StyledButton variant="outlined">{page.attributes.blocks[2].action[2].title}</StyledButton>
                 </Box>
                 </Box>
-                <ArticlesView filter={{currentPage:1, pageSize:5}} />
+                <ArticlesView filter={{currentPage:1, pageSize:5}} /> */}
             </Container>
             )}
         </div>

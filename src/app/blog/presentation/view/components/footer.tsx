@@ -44,7 +44,7 @@ export default function Footer() {
                     <Box sx={{margin: 'auto', padding:1 }}>
                     
                         <Typography variant="body2" component="div" align="left" gutterBottom>
-                        <MailOutline />  info@domain.com
+                        <MailOutline />  info@loadstartech.com
                         </Typography>
                     </Box>
                 </Grid> 
