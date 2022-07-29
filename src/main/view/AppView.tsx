@@ -57,8 +57,7 @@ function AppView() {
           <Route path="/article/category/:slug"  element={<ArticleCategory />} />
           </Routes>
           </Container>
-          <Divider sx={{marginLeft:10,marginRight:10}}/>
-          <Footer/>
+          <Footer />
         </ThemeProvider>
       </Provider>
     </Router>

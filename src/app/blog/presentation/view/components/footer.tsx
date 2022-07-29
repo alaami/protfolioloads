@@ -6,6 +6,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import MailOutline from '@mui/icons-material/MailOutline';
 import PhoneAndroid from '@mui/icons-material/PhoneAndroid';
 import Copyright from '@mui/icons-material/Copyright';
+import { customTheme } from '../../../../../main/utils/customTheme';
 
 export default function Footer() {
   const [value, setValue] = useState(0);
@@ -19,7 +20,8 @@ export default function Footer() {
     pl:10,
     pr:10,
     m: 1,
-    bgcolor: 'background.paper',
+    bgcolor:customTheme.palette.footer.main,
+    color:customTheme.palette.footer.contrastText,
     borderRadius: 1,
     }}
     >

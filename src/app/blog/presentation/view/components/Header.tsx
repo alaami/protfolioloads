@@ -11,9 +11,8 @@ import MenuList from '@mui/material/MenuList';
 import { Drawer, IconButton, Toolbar } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import ReactCountryFlag from 'react-country-flag';
-import { StyledSelect } from '../../../../../main/utils/customStyle';
+import { StyledSelect,StyledLogo } from '../../../../../main/utils/customStyle';
 import {MenuElem } from '../../../domain/entities/menuEntity';
-import CardMedia from '@mui/material/CardMedia';
 
   export default function Header(props:any) {
    // const [locale, setLocale] = useState(""); 
@@ -132,9 +131,9 @@ import CardMedia from '@mui/material/CardMedia';
       const imageUrl = "/logo-236x100.png";
       return (
 <>
-    <Box sx={{display: 'flex' }}>
-        <Box sx={{ padding:2,width: '20%'}}>
-             <img src={imageUrl} alt='logo' />
+    <Box sx={{display: 'flex', height:100 }}>
+        <Box sx={{ padding:1,width: '20%'}}>
+            <StyledLogo src={imageUrl} alt='logo'/>
         </Box>
         <Box sx={{ display: 'flex' ,width: '60%'}}>
         {menu[0].attributes.menu[0].Menu.map((item:MenuElem) => {
@@ -172,8 +171,8 @@ import CardMedia from '@mui/material/CardMedia';
                 autoWidth
                 variant='standard'
                 >
-                    <MenuItem value="en-CA">EN-CA</MenuItem>
-                    <MenuItem value="fr-CA">FR-CA</MenuItem>
+                    <MenuItem value="en-CA">EN</MenuItem>
+                    <MenuItem value="fr-CA">FR</MenuItem>
                 </StyledSelect>
             </FormControl>
             </Box>
@@ -183,6 +182,7 @@ import CardMedia from '@mui/material/CardMedia';
     };
   
     const displayMobile = (menu:any) => {
+      const imageUrl = "/logo-236x100.png";
  
       return (
         <Toolbar>
@@ -224,31 +224,29 @@ import CardMedia from '@mui/material/CardMedia';
           </Drawer>
     
           <Box sx={{display: 'flex' }}>
-        <Box sx={{ width: '100%'}}>
-        <ul className="uk-navbar-nav">
-            <li>
-             <Link to="/">Strapi Blog</Link>
-            </li>
-        </ul>  
+        <Box sx={{ padding:2,width: '100%', height:'80px'}}>
+             <img src={imageUrl} alt='logo' />
         </Box>
         <Box sx={{ display: 'flex', alignSelf:'flex-end'}}>
-                      <ReactCountryFlag
-                countryCode="US"
+        <ReactCountryFlag
+                countryCode={lang[1]}
                 svg
                 cdnUrl="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.4.5/flags/1x1/"
                 cdnSuffix="svg"
                 title="US"
+                style={{borderRadius:20, marginBottom:5, height:20, width:20}}
             />
             <FormControl sx={{ m: 1, minWidth: 80 }}>
-                <StyledSelect
+            <StyledSelect
                 name="locales"
                 id="locales"
                 value={locale}
                 onChange={setLang}
                 autoWidth
+                variant='standard'
                 >
-                    <MenuItem value="en-CA">EN-CA</MenuItem>
-                    <MenuItem value="fr-CA">FR-CA</MenuItem>
+                    <MenuItem value="en-CA">EN</MenuItem>
+                    <MenuItem value="fr-CA">FR</MenuItem>
                 </StyledSelect>
             </FormControl>
             </Box>

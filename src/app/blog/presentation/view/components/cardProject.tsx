@@ -4,10 +4,7 @@ import { Link } from "react-router-dom";
 import { StyledButton } from '../../../../../main/utils/customStyle';
 
 const CardProject = ({ project }:any) => {
-   const imageUrl =
-    process.env.NODE_ENV !== "development"
-      ? project.attributes.image.data.attributes.url
-      : process.env.REACT_APP_BACKEND_URL + project.attributes.image.data.attributes.url;
+   const imageUrl = project.attributes.image.data.attributes.url;
   return (
     <Grid container spacing={2}>
     <Grid item xs={12} md={4}>
@@ -20,19 +17,24 @@ const CardProject = ({ project }:any) => {
     <Grid item xs={12} md={8} >
     <Paper sx={{margin:'auto', padding:2,marginBottom:5, marginTop:1 }} elevation={0}>
           <Stack>
-          <Box>
+          <Box sx={{ display: 'flex',flexDirection: 'column'}}>
+            <Box>
             <Typography gutterBottom variant="h4" sx={{fontWeight:'bold'}}  component="div">
             {project.attributes.title}
             </Typography>
+            </Box>
+            <Box height='150px' padding={1}>
             <Typography variant="body1" color="text.secondary">
             {project.attributes.description}
             </Typography>
+            </Box>
+            <Box>
             <Link style={{ textDecoration: 'none' }}
             to={`/project/${project.attributes.slug}`}
             >
                <StyledButton variant="outlined" >DETAILS</StyledButton>
             </Link>
-           
+            </Box>
           </Box>
           </Stack>
       </Paper>
