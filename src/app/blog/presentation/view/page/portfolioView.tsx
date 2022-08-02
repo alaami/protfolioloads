@@ -73,7 +73,6 @@ const PortfolioView = (props:any) => {
                 </CardMedia>
                 <Box sx={{margin:'auto', padding:10}}>
                 <ReactMarkdown rehypePlugins={[rehypeRaw]}children={page.attributes.blocks[1].body} />
-                {page.attributes.blocks[1].body}
                 </Box>
                 <Grid  container spacing={2}>
                 <ProjectView filter={{pageSize:8}} />

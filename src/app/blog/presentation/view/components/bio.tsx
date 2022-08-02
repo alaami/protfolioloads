@@ -25,7 +25,7 @@ export const Bio = (props:any) => {
           alignItems: 'flex-start',
 
           height:'100%'}}>
-    <Paper sx={{margin:'auto',marginTop:5,backgroundColor:customTheme.palette.secondary.main}} elevation={0}>
+    <Paper sx={{margin:'auto',marginTop:0,backgroundColor:customTheme.palette.secondary.main}} elevation={0}>
     <CardMedia
         component="img"
         height="300"

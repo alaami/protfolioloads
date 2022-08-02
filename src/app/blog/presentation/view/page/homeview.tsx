@@ -46,6 +46,15 @@ const HomeView = (props:any) => {
         (page!=undefined)  && (  
             <Container sx={{marginTop:10}} maxWidth="xl">
                 <Bio content={page.attributes.blocks[0].body}/>
+                <Divider sx={{marginTop:5} }/>
+                <Box sx={{ width: '100%', maxWidth: 500,  marginTop:2 }}>
+                <Typography variant="h4" sx={{fontWeight:'bold', color:'#000'}} component="div" align="left" gutterBottom>
+                {page.attributes.blocks[2].sectionHeader[1].title}
+                </Typography>
+                </Box>
+                <Grid  sx={{display:"flex", alignContent:"space-around"}} container spacing={20}>
+                <ServiceView />
+                </Grid>
                 <Divider/>
                 <Box
                     sx={{
@@ -70,15 +79,7 @@ const HomeView = (props:any) => {
                 <Grid  container spacing={2}>
                 <ProjectView filter={{currentPage:1, pageSize:4}}/>
                 </Grid>
-                <Divider sx={{marginTop:5} }/>
-                <Box sx={{ width: '100%', maxWidth: 500,  marginTop:2 }}>
-                <Typography variant="h4" sx={{fontWeight:'bold', color:'#000'}} component="div" align="left" gutterBottom>
-                {page.attributes.blocks[2].sectionHeader[1].title}
-                </Typography>
-                </Box>
-                <Grid  sx={{display:"flex", alignContent:"space-around"}} container spacing={20}>
-                <ServiceView />
-                </Grid>
+
                 <Divider/>
                 <Submission content={page.attributes.blocks[1]}/>
 {/*                 <Divider />
