@@ -20,8 +20,8 @@ const ProjectView = ({filter}:any) => {
     } = useProjectViewModel(store);
 
     useEffect(()=>{
-      getProjects(currentPage,filter.pageSize);
-    },[getProjects,currentPage]);
+      getProjects(currentPage,filter.pageSize,filter.locale);
+    },[getProjects,currentPage,filter.locale]);
 
     if (projects!=undefined && projectMeta!=undefined){
       totalPage=Math.round(projectMeta?.pagination.total/filter.pageSize);

@@ -53,7 +53,7 @@ function AppView() {
           <Route path="/portfolio" element={<PortfolioView locale={locale}/>} />
           <Route path="/contact" element={<ContactView />} />
           <Route path="/article/:slug" element={<ArticlesDetailView />}  />
-          <Route path="/project/:slug" element={<ProjectDetailView />}  />
+          <Route path="/project/:slug" element={<ProjectDetailView locale={locale}/>}  />
           <Route path="/article/category/:slug"  element={<ArticleCategory />} />
           </Routes>
           </Container>

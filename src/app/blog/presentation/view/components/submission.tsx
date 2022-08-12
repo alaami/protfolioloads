@@ -24,7 +24,7 @@ export const Submission = (props:any) => {
           {props.content.description}
           </Typography>
           <Box sx={{ margin: 'auto' , width:'30%'}}>
-          <StyledButton variant="outlined" startIcon={<MailOutlineIcon />}>{props.content.action.title}</StyledButton>
+          <StyledButton variant="outlined" startIcon={<MailOutlineIcon />} onClick={() => window.location.href = 'mailto:info@loadstartech.com'}>{props.content.action.title}</StyledButton>
           </Box>
           </Box>
         </Stack>

@@ -7,7 +7,7 @@ interface ServiceStore{
     isLoadingSingleService: boolean;
 
     //Action
-    getServices(): Promise<Services>;
+    getServices(locale: string): Promise<Services>;
     getService(slug: string) : Promise<Services>;
 }
 export {ServiceStore}

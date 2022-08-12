@@ -50,6 +50,14 @@ export interface Block {
     sectionHeader: SectionHeader[];
 }
 
+export interface Seo {
+  id: number;
+  metaTitle: string;
+  metaDescription: string;
+  keywords: string;
+  preventIndexing: boolean;
+}
+
 export interface Attributes {
     title: string;
     createdAt: Date;
@@ -57,6 +65,7 @@ export interface Attributes {
     blocks: Block[];
     cover: Cover;
     slug: string;
+    seo:Seo;
 }
 export interface Large {
     ext: string;
