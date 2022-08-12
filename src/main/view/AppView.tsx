@@ -20,7 +20,7 @@ function AppView() {
   const [locale, setLocale] = useState("");
   
   useEffect(() => {
-      if(window.localStorage.getItem('lang')==''){
+      if(window.localStorage.getItem('lang')=='null'){
         setLocale('en-CA');
         window.localStorage.setItem('lang', 'en-CA');
       }else{

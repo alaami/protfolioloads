@@ -46,7 +46,7 @@ const HomeView = (props:any) => {
     return(
         <div className="App">
         {(isLoadingPage || firstRender.current)? (
-            <h1>Loading Page {pathname}</h1>
+            <h1 style={{margin:"70px"}}>Loading Page {pathname} please refresh the page </h1>
         ):
         (page!=undefined)  && (  
                 <>

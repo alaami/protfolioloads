@@ -15,8 +15,13 @@ import { StyledSelect,StyledLogo } from '../../../../../main/utils/customStyle';
 import {MenuElem } from '../../../domain/entities/menuEntity';
 
   export default function Header(props:any) {
-   // const [locale, setLocale] = useState(""); 
-    const locale = props.locale;
+   // const [locale, setLocale] = useState("");
+   
+   if (props.locale!=null)
+     var locale:string = props.locale;
+   else
+     var locale:string = "en-CA";
+    
     /*useEffect(() => {
       if(window.localStorage.getItem('lang')==''){
         setLocale('en-CA');
@@ -69,7 +74,10 @@ import {MenuElem } from '../../../domain/entities/menuEntity';
         window.removeEventListener("resize", () => setResponsiveness());
       };
     }, []);
-   const lang= locale.split("-");
+
+   if(locale!=null){
+    var lang= locale.split("-");
+   }
 
 
    //Mobile logic
@@ -136,7 +144,10 @@ import {MenuElem } from '../../../domain/entities/menuEntity';
             <StyledLogo src={imageUrl} alt='logo'/>
         </Box>
         <Box sx={{ display: 'flex' ,width: '60%'}}>
-        {menu[0].attributes.menu[0].Menu.map((item:MenuElem) => {
+        {(isLoadingMenus)? (
+            <h1>Loading menus</h1>
+        ):
+        (menu!=undefined)  && ( menu[0].attributes.menu[0].Menu.map((item:MenuElem) => {
             return (
                 <MenuItem
                 component={Link}
@@ -148,7 +159,7 @@ import {MenuElem } from '../../../domain/entities/menuEntity';
                     {item.title}
                 </MenuItem>
             );
-          })}
+          }))}
           </Box>
           <Box sx={{ display: 'flex', alignSelf:'center'}}>
             <Box sx={{ alignSelf:'center'}}>
@@ -207,7 +218,10 @@ import {MenuElem } from '../../../domain/entities/menuEntity';
           >
             
             <MenuList>
-            {menu[0].attributes.menu[0].Menu.map((item:MenuElem)=> {
+            {(isLoadingMenus)? (
+            <h1>Loading menus</h1>
+             ):(
+            menu[0].attributes.menu[0].Menu.map((item:MenuElem)=> {
             return (
                 <MenuItem
                 component={Link}
@@ -219,7 +233,7 @@ import {MenuElem } from '../../../domain/entities/menuEntity';
                     {item.title}
                 </MenuItem>
             );
-          })}
+          }))}
                 </MenuList>         
           </Drawer>
     
