@@ -11,7 +11,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.main,
   color: theme.palette.secondary.contrastText,
   marginBottom: theme.spacing(2),
-  marginTop: theme.spacing(3),
+  marginTop: theme.spacing(13),
 }));
 
 const StyledDiv = styled("div")(({ theme }) => ({
@@ -23,14 +23,20 @@ const StyledCard= styled(Card)(() => ({
 const StyledDivCard = styled("div")(() => ({
   flex: 1,
 }));
+const StyledLogo = styled("img")(() => ({
+  height: '80px!important',
+}));
 
 const StyledCardMedia= styled(CardMedia)(() => ({
-  height:400,
+  height:650,
   width: 400,
   margin: 'auto',
-  marginTop:20,
-  marginBottom:20,
 }));
+const StyledServiceCardMedia= styled(CardMedia)(() => ({
+  height:250,
+  margin: 'auto',
+}));
+
 
 const StyledSliderCardMedia= styled(CardMedia)(({theme}) => ({
   height:400,
@@ -75,7 +81,7 @@ const StyledSelect= styled(Select)(() => ({
 
 
 
-export {StyledSelect,StyledButton,StyledPagePaper,StyledCard,StyledCardMedia,StyledDiv,StyledPaper,StyledMainGrid, StyledDivCard,StyledSliderBox,StyledSliderCardMedia,StyledSliderContentBox}
+export {StyledLogo, StyledSelect,StyledButton,StyledPagePaper,StyledCard,StyledCardMedia, StyledServiceCardMedia,StyledDiv,StyledPaper,StyledMainGrid, StyledDivCard,StyledSliderBox,StyledSliderCardMedia,StyledSliderContentBox}
 
 
 

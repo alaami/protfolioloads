@@ -39,10 +39,7 @@ const LabView = (props:any) => {
     
     var imageUrl =''
     if(page!=undefined && !firstRender.current){
-         imageUrl =
-        process.env.NODE_ENV !== "development"
-          ? page.attributes.cover.data.attributes.url
-          : process.env.REACT_APP_BACKEND_URL + page.attributes.cover.data.attributes.url;
+         imageUrl = page.attributes.cover.data.attributes.url;
     }
   
     return(
@@ -68,13 +65,19 @@ const LabView = (props:any) => {
                   </StyledSliderContentBox>
                   </StyledSliderBox>
                 </CardMedia>
+                <Box sx={{          display: 'flex',
+                    alignItems: 'flex-start',
+                    p: 1,
+                    m: 1,
+                    height:'100%'}}>
                 <Box sx={{margin:'auto', padding:10}}>
-                <ReactMarkdown rehypePlugins={[rehypeRaw]}children={page.attributes.blocks[0].body} />
-                {page.attributes.blocks[0].body}
-                </Box>  
+                    {
+                     (page.attributes.blocks[0]!=undefined) && (<ReactMarkdown rehypePlugins={[rehypeRaw]}children={page.attributes.blocks[0].body} />)
+                    }
+                </Box>
+                </Box>    
                 <ArticlesView filter={{currentPage:1, pageSize:5}}/>      
-                </StyledPagePaper>
-               
+                </StyledPagePaper>             
               </Stack>
            
           )}

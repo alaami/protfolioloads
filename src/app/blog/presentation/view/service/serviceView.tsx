@@ -4,7 +4,7 @@ import { useServiceViewModel } from "../../controller/serviceViewModel";
 import { useServicesStoreImplementation } from "../../../data/repositories/serviceStoreImplementation";
 import CardService from "../components/cardService"
 import  Grid  from "@mui/material/Grid"
-const ServiceView = () => {
+const ServiceView = ({ locale}: any) => {
     const store = useServicesStoreImplementation ();
     
     const {
@@ -15,8 +15,8 @@ const ServiceView = () => {
     } = useServiceViewModel(store);
 
     useEffect(()=>{
-        getServices();
-    },[getServices]);
+        getServices(locale);
+    },[getServices,locale]);
 
 
 

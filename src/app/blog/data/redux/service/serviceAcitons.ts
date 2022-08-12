@@ -1,9 +1,9 @@
 import { getServices, getServiceDetails } from "../../datasources/serviceAPIService"; 
 import * as actionTypes from "../service/serviceActionTypes"
-const getServicesAction =()=> (dispatch:any)=>{
+const getServicesAction =(locale:string)=> (dispatch:any)=>{
 dispatch({type:actionTypes.GET_SERVICES});
 
-return getServices().then((services)=>{
+return getServices(locale).then((services)=>{
     dispatch({type: actionTypes.GET_SERVICES_SUCCESS, services});
     return services;
 });

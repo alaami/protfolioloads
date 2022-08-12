@@ -13,8 +13,8 @@ const queryDetails = qs.stringify({
 }, {
   encodeValuesOnly: true,
 });
-function getServices(): Promise<Services> {
-     const url=`${process.env.REACT_APP_BACKEND_URL}/api/services?${query}`;
+function getServices(locale:string): Promise<Services> {
+     const url=`${process.env.REACT_APP_BACKEND_URL}/api/services?${query}&locale=${locale}`;
     return axios.get(url).then(res=>create(res.data));
 }
 

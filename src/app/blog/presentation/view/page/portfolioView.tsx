@@ -38,10 +38,7 @@ const PortfolioView = (props:any) => {
     
     var imageUrl =''
     if(page!=undefined && !firstRender.current){
-         imageUrl =
-        process.env.NODE_ENV !== "development"
-          ? page.attributes.cover.data.attributes.url
-          : process.env.REACT_APP_BACKEND_URL + page.attributes.cover.data.attributes.url;
+         imageUrl = page.attributes.cover.data.attributes.url;
     }
   
     return(
@@ -59,7 +56,7 @@ const PortfolioView = (props:any) => {
                     title={page.attributes.title}
                     sx={{height:600}}
                                     >
-                   <Box sx={{          display: 'flex',
+                   <Box sx={{display: 'flex',
                     alignItems: 'flex-start',
                     p: 1,
                     m: 1,
@@ -73,10 +70,9 @@ const PortfolioView = (props:any) => {
                 </CardMedia>
                 <Box sx={{margin:'auto', padding:10}}>
                 <ReactMarkdown rehypePlugins={[rehypeRaw]}children={page.attributes.blocks[1].body} />
-                {page.attributes.blocks[1].body}
                 </Box>
                 <Grid  container spacing={2}>
-                <ProjectView filter={{pageSize:5}} />
+                <ProjectView filter={{pageSize:8, locale:locale}} />
                 </Grid>
                 </StyledPagePaper>
               </Stack>

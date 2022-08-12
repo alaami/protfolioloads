@@ -20,7 +20,7 @@ function AppView() {
   const [locale, setLocale] = useState("");
   
   useEffect(() => {
-      if(window.localStorage.getItem('lang')==''){
+      if(window.localStorage.getItem('lang')=='null'){
         setLocale('en-CA');
         window.localStorage.setItem('lang', 'en-CA');
       }else{
@@ -53,12 +53,11 @@ function AppView() {
           <Route path="/portfolio" element={<PortfolioView locale={locale}/>} />
           <Route path="/contact" element={<ContactView />} />
           <Route path="/article/:slug" element={<ArticlesDetailView />}  />
-          <Route path="/project/:slug" element={<ProjectDetailView />}  />
+          <Route path="/project/:slug" element={<ProjectDetailView locale={locale}/>}  />
           <Route path="/article/category/:slug"  element={<ArticleCategory />} />
           </Routes>
           </Container>
-          <Divider sx={{marginLeft:10,marginRight:10}}/>
-          <Footer/>
+          <Footer />
         </ThemeProvider>
       </Provider>
     </Router>

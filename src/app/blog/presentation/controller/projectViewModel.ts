@@ -4,18 +4,18 @@ import { getProjectsUseCase } from "../../domain/usecases/project/getProjectsUse
 import { getProjectDetailsUseCase } from "../../domain/usecases/project/getProjectDetailsUseCase";
 
 function useProjectViewModel (store: ProjectStore){
-    const getProjects=useCallback(function(currentPage:number,pageSize:number){
+    const getProjects=useCallback(function(currentPage:number,pageSize:number,locale:string){
         getProjectsUseCase({
             getProjects:store.getProjects,
-        },currentPage,pageSize);
+        },currentPage,pageSize,locale);
     },
     [store.getProjects]
     );
 
-    const getProjectsDetails=useCallback(function(slug: string){
+    const getProjectsDetails=useCallback(function(slug: string,locale:string){
         getProjectDetailsUseCase ({
             getProject:store.getProject,
-        },slug);
+        },slug,locale);
     },
     [store.getProject]
     );
