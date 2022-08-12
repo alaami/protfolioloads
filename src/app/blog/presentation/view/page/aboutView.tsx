@@ -12,6 +12,7 @@ import { customTheme } from "../../../../../main/utils/customTheme";
 import Grid from "@mui/material/Grid";
 import rehypeRaw from 'rehype-raw'
 import {StyledPagePaper, StyledSliderBox,StyledSliderContentBox} from  "../../../../../main/utils/customStyle"; 
+import Divider from "@mui/material/Divider";
 
 const AboutView = (props:any) => {
     const store = usePageStoreImplementation ();
@@ -39,10 +40,7 @@ const AboutView = (props:any) => {
     
     var imageUrl =''
     if(page!=undefined && !firstRender.current){
-         imageUrl =
-        process.env.NODE_ENV !== "development"
-          ? page.attributes.cover.data.attributes.url
-          : process.env.REACT_APP_IMAGES_HOST + page.attributes.cover.data.attributes.url;
+         imageUrl = page.attributes.cover.data.attributes.url;
     }
   
     return(
@@ -71,21 +69,17 @@ const AboutView = (props:any) => {
                 <Box sx={{margin:'auto', padding:10}}>
                 <ReactMarkdown rehypePlugins={[rehypeRaw]}children={page.attributes.blocks[1].body} />
                 </Box>
-                    <Box sx={{          display: 'flex',
+                    <Box sx={{  display: 'flex',
                         alignItems: 'flex-start',
                         m: 1,
-                        height:300,
                         bgcolor:customTheme.palette.primary.main,
                         color:customTheme.palette.primary.contrastText}}>
-                        <Grid  container spacing={2}>
+                        <Grid  container spacing={2} >
                         {page.attributes.blocks[3].servicecard!.map((service:any) => {
-                                  var iconUrl =
-                                     process.env.NODE_ENV !== "development"
-                                       ? service.image.data.attributes.url
-                                       : process.env.REACT_APP_IMAGES_HOST + service.image.data.attributes.url;
+                                  var iconUrl =service.image.data.attributes.url;
                         return (
                             <Grid item xs={12} md={4} key={`service__${service.title}`}>
-                            <Paper sx={{height:200,margin:'auto', padding:5, bgcolor:'inherit',color:'inherit' }} elevation={0}>
+                            <Paper sx={{margin:'auto', padding:5, bgcolor:'inherit',color:'inherit' }} elevation={0}>
                                 <Stack>
                                     <Box >
                                     <CardMedia image={iconUrl} sx={{height:50,width:50, margin:'auto', mb:5}}/>
@@ -105,6 +99,7 @@ const AboutView = (props:any) => {
                        
                         </Grid>           
                     </Box>
+                   
                 </StyledPagePaper>
               </Stack>
            

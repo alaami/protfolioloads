@@ -36,7 +36,7 @@ export default function Footer() {
                 <Grid item xs={12} md={3}>
                 <Box sx={{margin: 'auto', padding:1 }}>
                         <Typography variant="body2" component="div" align="left" gutterBottom>
-                        <PhoneAndroid />  (+1) 514 572 8805
+                        <PhoneAndroid />  (+1) 818 751 7877
                         </Typography>
                     </Box>
                 </Grid> 
@@ -52,7 +52,7 @@ export default function Footer() {
                     <Box sx={{margin: 'auto', padding:1 }}>
                     
                         <Typography variant="body2" component="div" align="left" gutterBottom>
-                        <LocationOnIcon />  Montréal, QC, Canada
+                        <LocationOnIcon />  ON, Canada
                         </Typography>
                     </Box>
                 </Grid> 

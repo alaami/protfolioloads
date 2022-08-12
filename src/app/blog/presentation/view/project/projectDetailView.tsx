@@ -12,8 +12,9 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import {StyledCard,StyledCardMedia,StyledPaper,StyledMainGrid, StyledDivCard,StyledSliderBox,StyledSliderCardMedia,StyledSliderContentBox} from  "../../../../../main/utils/customStyle"; 
 
 
-const ProjectDetailView = () => {
+const ProjectDetailView = (props:any) => {
     const store = useProjectStoreImplementation ();
+    const locale = props.locale;
     const {
         getProjectsDetails,
         project,
@@ -22,9 +23,9 @@ const ProjectDetailView = () => {
     } = useProjectViewModel(store);
     let { slug } = useParams();
    useEffect(()=>{
-      if(slug!=undefined)
-      getProjectsDetails(slug);
-    },[getProjectsDetails]);
+      if(slug!=undefined && locale!='')
+      getProjectsDetails(slug,locale);
+    },[getProjectsDetails,locale]);
     let imageUrl:string ='';
     if(project!=undefined){
          imageUrl = project[0].attributes.image.data.attributes.url;

@@ -19,7 +19,7 @@ ServiceStoreState
 const dispatch= useDispatch();
 
 const getServices=useCallback(
-    () =>getServicesAction()(dispatch),
+    (locale:string) =>getServicesAction(locale)(dispatch),
     [dispatch]
 );
 

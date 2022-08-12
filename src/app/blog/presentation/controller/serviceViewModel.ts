@@ -4,10 +4,10 @@ import { getServicesUseCase } from "../../domain/usecases/service/getServicesUse
 import { getServiceDetailsUseCase } from "../../domain/usecases/service/getServiceDetailsUseCase";
 
 function useServiceViewModel (store: ServiceStore){
-    const getServices=useCallback(function(){
+    const getServices=useCallback(function(locale: string){
         getServicesUseCase({
             getServices:store.getServices,
-        });
+        },locale);
     },
     [store.getServices]
     );

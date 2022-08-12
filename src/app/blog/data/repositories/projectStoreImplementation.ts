@@ -19,12 +19,12 @@ ProjectStoreState
 const dispatch= useDispatch();
 
 const getProjects=useCallback(
-    (currentPage:number,pageSize:number) =>getProjectsAction(currentPage,pageSize)(dispatch),
+    (currentPage:number,pageSize:number,locale:string) =>getProjectsAction(currentPage,pageSize, locale)(dispatch),
     [dispatch]
 );
 
 const getProject=useCallback(
-    (slug: string) =>getProjectDetailsAction(slug)(dispatch),
+    (slug: string,locale:string) =>getProjectDetailsAction(slug,locale)(dispatch),
     [dispatch]
 );
 
