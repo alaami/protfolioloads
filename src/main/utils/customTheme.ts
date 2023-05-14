@@ -1,21 +1,34 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme, PaletteColor } from "@mui/material/styles";
 import { orange } from "@mui/material/colors";
+
+
+const { palette } = createTheme();
 const customTheme = createTheme({
     palette: {
       primary: {
-        main: '#80cbc4',
-        contrastText: '#fff',
+        main: '#097392',
+        contrastText: '#FFF0CE',
       },
       secondary: {
-        main: '#D4F1F4',
-        contrastText: '#000',
+        main: '#83B4B3',
+        contrastText:  '#FFF0CE',
       },
+      thirdly: palette.augmentColor({
+        color: {
+          main: '#FFF0CE',
+          contrastText:  '#383838',
+        }, }),
+        fourthly: palette.augmentColor({
+          color: {
+            main: '#D55534',
+            contrastText: '#383838',
+          }, }),
       neutral: {
         main: '#64748B',
         contrastText: '#fff',
       },
       footer: {
-        main: '#000',
+        main: '#383838',
         contrastText: '#fff',
       },
   
@@ -35,10 +48,15 @@ declare module '@mui/material/styles' {
       interface Palette {
         neutral: Palette['primary'];
         footer: Palette['primary'];
+        thirdly: PaletteColor;
+        fourthly: PaletteColor;
+        
       }
       interface PaletteOptions {
         neutral: PaletteOptions['primary'];
         footer: PaletteOptions['primary'];
+        thirdly: PaletteColor;
+        fourthly: PaletteColor;
       }
     // allow configuration using `createTheme`
     interface ThemeOptions {

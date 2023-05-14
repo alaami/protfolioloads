@@ -1,5 +1,5 @@
+import Link from "next/link";
 import React from "react";
-import { Link } from "react-router-dom";
 
 const Card = ({ article }:any) => {
   const imageUrl =
@@ -8,7 +8,7 @@ const Card = ({ article }:any) => {
       : process.env.REACT_APP_BACKEND_URL + article.attributes.cover.data.attributes.url;
        // article.attributes.image.data.attributes.url;
   return (
-    <Link to={`/article/${article.attributes.slug}`} className="uk-link-reset">
+    <Link href={`/article/${article.attributes.slug}`} className="uk-link-reset">
       <div className="uk-card-muted">
         <div className="uk-card-media-top">
           <img src={imageUrl} alt='' height="100" />

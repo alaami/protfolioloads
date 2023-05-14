@@ -64,6 +64,7 @@ export interface Attributes {
     updatedAt: Date;
     blocks: Block[];
     cover: Cover;
+    locale:string,
     slug: string;
     seo:Seo;
 }
@@ -152,10 +153,10 @@ export interface Data {
     attributes: Attributes;
 }
 
-export interface Meta {
-}
+/*export interface Meta {
+}*/
 
 export interface Page {
-    data: Data;
-    meta?: Meta;
+    data: Data[];
+    //meta?: Meta;
 }

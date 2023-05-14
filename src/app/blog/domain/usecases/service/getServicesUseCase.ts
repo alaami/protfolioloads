@@ -1,10 +1,10 @@
 import type { ServiceStore } from "../../repositories/serviceStore";
 
 
-type GetServiceStore= Pick <ServiceStore, "getServices">;
+type GetServiceStore= Pick <ServiceStore, "getServicesRepo">;
 
 const getServicesUseCase= (store: GetServiceStore, locale:string)=>{
-    store.getServices(locale);
+   return store.getServicesRepo(locale);
 }
 
 export {getServicesUseCase};

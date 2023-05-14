@@ -1,15 +1,16 @@
-import {useEffect, useRef } from "react";
+/* import {useEffect, useRef } from "react";
 
 import { usePageViewModel } from "../../controller/pageViewModel";
 import { usePageStoreImplementation } from "../../../data/repositories/pageStoreImplementation";
-import { useLocation } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
-
+import { useRouter } from "next/router";
+import React from "react";
 const ContactView = () => {
     const store = usePageStoreImplementation ();
-    const pathname = useLocation().pathname;
+    const router = useRouter()
+    const pathname = router.pathname;    
     const firstRender = useRef(true);
-    var locale="";
+    let locale="";
     
     const {
         getPage,
@@ -43,7 +44,7 @@ const ContactView = () => {
 
         <><h1>{page.attributes.title}</h1><div className="uk-section">
                         <div className="uk-container uk-container-small">
-                            <ReactMarkdown children={page.attributes.blocks[1].body} />
+                            <ReactMarkdown>{page.attributes.blocks[1].body}</ReactMarkdown>
                         </div>
                     </div></>
            
@@ -52,4 +53,4 @@ const ContactView = () => {
         </div>
     );
 };
-export default ContactView;
+export default ContactView; */

@@ -1,36 +1,51 @@
 import React,{ useEffect, useState } from "react";
-
-import { useProjectViewModel } from "../../controller/projectViewModel";
-import { useProjectStoreImplementation } from "../../../data/repositories/projectStoreImplementation";
 import CardProject from "../components/cardProject";
 import Pagination from "@mui/material/Pagination";
-const ProjectView = ({filter}:any) => {
-    const store = useProjectStoreImplementation ();
+const ProjectView = (props:any) => {
     const [currentPage, setPage] = useState(1);
     let totalPage=0;
+    let paginationTotal=0;
+    const pageSize=props.filter.pageSize;
+  //  const pathname=router.pathname;
+    let projectsArray=[];
+    let projects=[];
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
       setPage(value);
     };
-    const {
-        getProjects,
-        projects,
-        projectMeta,
-        isLoadingProjects
-
-    } = useProjectViewModel(store);
-
-    useEffect(()=>{
-      getProjects(currentPage,filter.pageSize,filter.locale);
-    },[getProjects,currentPage,filter.locale]);
-
-    if (projects!=undefined && projectMeta!=undefined){
-      totalPage=Math.round(projectMeta?.pagination.total/filter.pageSize);
+    if(props.homeProjects!=undefined){
+      projectsArray=props.homeProjects;
+    }else if (props.portfolioProjects!=undefined){
+      projectsArray=props.portfolioProjects;
     }
+    if(projectsArray.length>0){
+        paginationTotal=projectsArray.length;   
+        const chuckedResult=arrChunk(projectsArray,pageSize);
+        projects=chuckedResult[currentPage-1];
+    }
+
+    if (projects!=undefined){
+      totalPage=Math.round(paginationTotal/pageSize);
+    }
+    function arrChunk(arr, size)
+      {
+        return arr.reduce((acc, e, i) =>
+        {
+          if (i % size)
+          {
+            acc[acc.length - 1].push(e);
+          }
+          else
+          {
+            acc.push([e]);
+          }
+          return acc;
+        }, []);
+      }
 
     return(
         <>       
-        {isLoadingProjects ? (
-            <h1>Loading projects ...</h1>
+        {projects==undefined ? (
+            <h2>Loading projects ...</h2>
         ):
         (projects!=undefined)  &&  (                    
             projects.map((project:any) => {
@@ -42,7 +57,7 @@ const ProjectView = ({filter}:any) => {
               );
             })
           )}
-         {totalPage>1 ? (<Pagination sx={{margin:'auto',width:'30%'}} count={totalPage} variant="outlined" color="primary" page={currentPage} onChange={handleChange}  />):null
+         {totalPage>1 ? (<Pagination sx={{margin:'auto',marginBottom:'10px', width:'30%'}} count={totalPage} variant="outlined" color="primary" page={currentPage} onChange={handleChange}  />):null
           }
         </>
     );

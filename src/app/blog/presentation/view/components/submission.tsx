@@ -2,24 +2,27 @@ import {Button, Grid, Paper, Stack, Typography} from "@mui/material"
 import { Box } from "@mui/system"
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { StyledButton } from "../../../../../main/utils/customStyle";
-
+import React from "react";
+import { useTheme } from "@mui/material/styles";
 export const Submission = (props:any) => {
+  const theme = useTheme();
   return (
+    
     <Box
     sx={{
     display: 'flex',
     justifyContent: 'space-between',
-    bgcolor: 'background.paper',
+    bgcolor: theme.palette.thirdly.main,
     borderRadius: 1,
     }}
 > 
-  <Paper sx={{ width:'50%',margin:'auto', marginTop:2, marginBottom:2}} elevation={0}>
+  <Paper sx={{ width:'50%',margin:'auto', marginTop:2, marginBottom:2, bgcolor: theme.palette.thirdly.main}} elevation={0}>
         <Stack>
         <Box>
-          <Typography gutterBottom variant="h2" component="div" align="center">
+          <h1 id="h1submit">
           {props.content.title}
-          </Typography>
-
+          </h1>
+          
           <Typography variant="body1" color="text.secondary" align="center">
           {props.content.description}
           </Typography>

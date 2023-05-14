@@ -3,14 +3,14 @@ import axios from 'axios';
 import{create} from '../models/pageModel'
 import qs from 'qs';
 const queryDetails = qs.stringify({
-  populate: 'blocks.servicecard.image,blocks.sectionHeader,blocks.action,cover,seo', 
+  populate: 'blocks.servicecard.image,blocks.sectionHeader,blocks.action,cover,seo,pageSettings', 
   //populate=*,blocks.servicecard
 }, {
   encodeValuesOnly: true,
 });
     
 function getPage(pathname:string,locale:string): Promise<Page> {
-     const url=`${process.env.REACT_APP_BACKEND_URL}/api${pathname}?${queryDetails}&locale=${locale}`;
+     const url=`${process.env.NEXT_PUBLIC_BACKEND_URL}/api${pathname}?${queryDetails}&locale=${locale}`;
 
     return axios.get(url).then(res=>create(res.data));
 }

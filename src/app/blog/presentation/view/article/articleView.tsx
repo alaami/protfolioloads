@@ -3,6 +3,7 @@ import { useArticlesViewModel } from "../../controller/articleViewModel";
 import { useArticlesStoreImplementation } from "../../../data/repositories/articleStoreImplementation";
 import Articles from "./articlesView";
 import Pagination from "@mui/material/Pagination";
+import React from "react";
 
 const ArticlesView = ({filter}:any) => {
     const store = useArticlesStoreImplementation ();

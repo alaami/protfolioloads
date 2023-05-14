@@ -1,0 +1,42 @@
+<urlset
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+    http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"   
+>
+<url>
+  <loc>https://www.loadstartech.com/</loc>
+  <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.loadstartech.com/fr/"/>
+</url>
+<url>
+  <loc>https://www.loadstartech.com/fr/</loc>
+  <lastmod>2022-11-09T23:26:56+00:00</lastmod>
+  <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.loadstartech.com/"/>
+</url>
+
+<url>
+  <loc>https://www.loadstartech.com/about/</loc>
+  <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.loadstartech.com/fr/about/"/>
+</url>
+<url>
+  <loc>https://www.loadstartech.com/fr/about/</loc>
+  <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.loadstartech.com/about/"/>
+</url>
+<url>
+  <loc>https://www.loadstartech.com/portfolio/</loc>
+  <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.loadstartech.com/fr/portfolio/"/>
+</url>
+<url>
+  <loc>https://www.loadstartech.com/fr/portfolio/</loc>
+  <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.loadstartech.com/portfolio/"/>
+</url>
+<url>
+  <loc>https://www.loadstartech.com/lab/</loc>
+  <xhtml:link rel="alternate" hreflang="fr-CA" href="https://www.loadstartech.com/fr/lab/"/>
+</url>
+<url>
+  <loc>https://www.loadstartech.com/fr/lab/</loc>
+  <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.loadstartech.com/lab/"/>
+</url>
+</urlset>

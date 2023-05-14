@@ -3,10 +3,21 @@ a {
   }
   
   h1 {
-    font-family: Staatliches;
-    font-size: 120px;
+    font-size: 45px;
   }
-  
+  #h1service{
+    margin:10px auto;
+    line-height:51px;
+    vertical-align:middle;
+    text-align:center
+  }
+  #h2service{
+    font-size: 27px;
+  }
+  #h1submit{
+    margin:10px auto;
+    text-align:center
+  }
   #category {
     font-family: Staatliches;
     font-weight: 500;

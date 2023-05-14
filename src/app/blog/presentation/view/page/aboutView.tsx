@@ -1,8 +1,5 @@
-import {useEffect, useRef } from "react";
-import { usePageViewModel } from "../../controller/pageViewModel";
-import { usePageStoreImplementation } from "../../../data/repositories/pageStoreImplementation";
+import {useContext} from "react";
 import ReactMarkdown from "react-markdown";
-import { useLocation, useParams } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
 import CardMedia from "@mui/material/CardMedia";
@@ -10,43 +7,30 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { customTheme } from "../../../../../main/utils/customTheme";
 import Grid from "@mui/material/Grid";
-import rehypeRaw from 'rehype-raw'
 import {StyledPagePaper, StyledSliderBox,StyledSliderContentBox} from  "../../../../../main/utils/customStyle"; 
+import { useRouter } from "next/router";
+import React from "react";
+import { I18nContext } from "next-i18next";
+import Icon from '@mui/material/Icon';
 import Divider from "@mui/material/Divider";
-
+import { List, ListItem, ListItemIcon, ListItemText, useTheme } from "@mui/material";
+import { CheckBox, Css } from "@mui/icons-material";
 const AboutView = (props:any) => {
-    const store = usePageStoreImplementation ();
-    const pathname = useLocation().pathname;
-    const firstRender = useRef(true);
-    const locale = props.locale;
-    const {
-        getPage,
-        resetPageStore,
-        page,
-        isLoadingPage
-
-    } = usePageViewModel(store);
-    
-
-    useEffect(()=>{   
-        if (firstRender.current) {
-            resetPageStore();
-            firstRender.current = false;
-          }
-        if(locale!=''){
-         getPage(pathname,locale);
-        }
-    },[getPage,locale]);
-    
-    var imageUrl =''
-    if(page!=undefined && !firstRender.current){
-         imageUrl = page.attributes.cover.data.attributes.url;
+    const { i18n: { language } } = useContext(I18nContext);
+    const router = useRouter()
+    const pathname=router.pathname;
+    const page=props.aboutPage.filter(function(item){
+        return item.attributes.locale == language;         
+      });
+    const theme = useTheme();
+    let imageUrl =''
+    if(page!=undefined){
+         imageUrl = page[0].attributes.cover.data.attributes.url;
     }
-  
     return(
         <div className="App">
         
-        {(isLoadingPage || firstRender.current)? (
+        {((page==undefined))? (
             <h1>Loading Page {pathname}</h1>
         ):
         (page!=undefined)  && (    
@@ -55,34 +39,56 @@ const AboutView = (props:any) => {
                 <CardMedia
                     className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
                     image={imageUrl}
-                    title={page.attributes.title}
+                    title={page[0].attributes.title}
                     sx={{height:600}}
                     >
                    <StyledSliderBox>
                   <StyledSliderContentBox>
-                  <Typography variant="h2" component="div"  align="center" gutterBottom>
-                  {page.attributes.title}
-                  </Typography>
+                  <h2 id="h1service">
+                   {page[0].attributes.title}
+                  </h2>
                   </StyledSliderContentBox>
                   </StyledSliderBox>
                 </CardMedia>
-                <Box sx={{margin:'auto', padding:10}}>
-                <ReactMarkdown rehypePlugins={[rehypeRaw]}children={page.attributes.blocks[1].body} />
-                </Box>
+                <Grid  container spacing={2} >
+                    <Grid item xs={12} md={7} key="content__body" sx={{padding:10}}>
+                     <ReactMarkdown>{page[0].attributes.blocks[1].body}</ReactMarkdown>
+                    </Grid>
+                    <Grid item xs={12} md={5} key="content__help" sx={{padding:10}}>
+                    <h2>
+                            {page[0].attributes.blocks[4].title}
+                    </h2>
+                    {page[0].attributes.blocks[4].servicecard!.map((service:any) => {
+                        return (
+                            <ListItem divider>
+                                <ListItemIcon>
+                                    <Css />
+                                </ListItemIcon>
+                                <ListItemText 
+                                    primary={`${service.title}`}/>
+                        </ListItem>
+                            
+                        );
+                        })}
+                    </Grid>
+                </Grid>
+                    <h2 id="h1service">
+                            {page[0].attributes.blocks[3].serviceTitle}
+                    </h2>
+                    <Divider sx={{ borderBottomWidth: 3,width:'30%',margin:'auto', marginBottom:2}}/>
                     <Box sx={{  display: 'flex',
                         alignItems: 'flex-start',
                         m: 1,
-                        bgcolor:customTheme.palette.primary.main,
-                        color:customTheme.palette.primary.contrastText}}>
+                        bgcolor:customTheme.palette.secondary.main,
+                        color:customTheme.palette.secondary.contrastText}}>
                         <Grid  container spacing={2} >
-                        {page.attributes.blocks[3].servicecard!.map((service:any) => {
-                                  var iconUrl =service.image.data.attributes.url;
+                        {page[0].attributes.blocks[3].servicecard!.map((service:any) => {
                         return (
                             <Grid item xs={12} md={4} key={`service__${service.title}`}>
                             <Paper sx={{margin:'auto', padding:5, bgcolor:'inherit',color:'inherit' }} elevation={0}>
                                 <Stack>
                                     <Box >
-                                    <CardMedia image={iconUrl} sx={{height:50,width:50, margin:'auto', mb:5}}/>
+                                    <Icon sx={{ fontSize: '150px !important',margin:'auto', display:'block !important'}}>{service.icon}</Icon>
                                     <Typography gutterBottom variant="h5" component="div" align="center">
                                     {service.title}
                                     </Typography>

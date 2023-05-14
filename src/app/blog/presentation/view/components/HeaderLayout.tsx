@@ -1,64 +1,30 @@
 import AppBar from '@mui/material/AppBar';
-import { useMenuViewModel } from "../../controller/menuViewModel";
-import { useMenuStoreImplementation } from "../../../data/repositories/menuStoreImplementation";
-import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import Box  from '@mui/material/Box';
-import { Link } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { Link } from '@/../i18n'
+import { useContext, useEffect, useRef, useState } from 'react';
 import  { PopperPlacementType } from '@mui/material/Popper';
 import MenuList from '@mui/material/MenuList';
-import { Drawer, IconButton, Toolbar } from '@mui/material';
+import { Drawer, IconButton, Toolbar, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import ReactCountryFlag from 'react-country-flag';
-import { StyledSelect,StyledLogo } from '../../../../../main/utils/customStyle';
+import { StyledLogo } from '../../../../../main/utils/customStyle';
+import { I18nContext } from 'next-i18next'
 import {MenuElem } from '../../../domain/entities/menuEntity';
+import React from "react";
+import menuData from '@/app/blog/data/prebuild/data.json'
+import LanguageSwitcher from './LanguageSwitcher';
+import { useTheme } from "@mui/material/styles";
 
-  export default function Header(props:any) {
-   // const [locale, setLocale] = useState("");
-   
-   if (props.locale!=null)
-     var locale:string = props.locale;
-   else
-     var locale:string = "en-CA";
-    
-    /*useEffect(() => {
-      if(window.localStorage.getItem('lang')==''){
-        setLocale('en-CA');
-        window.localStorage.setItem('lang', 'en-CA');
-      }else{
-        setLocale(window.localStorage.getItem('lang')!);
-      }
-     
 
-      
-    }, []);
-  
-    useEffect(() => {
-      window.localStorage.setItem('lang', locale);
-    }, [locale]);
-  */
-    function setLang(e:any) {
-      props.onLanguageChange(e.target.value);
-    }
-    const store = useMenuStoreImplementation ();
-    
-    const {
-        getMenus,
-        menu,
-        isLoadingMenus
+  export default function HeaderLayout(props:any) {
+    const theme = useTheme();
 
-    } = useMenuViewModel(store);
+    const { i18n: { language } } = useContext(I18nContext);
 
-    useEffect(()=>{
-      if(locale!=''){
-        getMenus(locale);
-      }
-        
+    const menu=menuData.filter(function(item){
+      return item.attributes.locale == language;         
+    });
 
-    },[getMenus,locale]);
-   
-  
     useEffect(() => {
       const setResponsiveness = () => {
         return window.innerWidth < 900
@@ -74,11 +40,6 @@ import {MenuElem } from '../../../domain/entities/menuEntity';
         window.removeEventListener("resize", () => setResponsiveness());
       };
     }, []);
-
-   if(locale!=null){
-    var lang= locale.split("-");
-   }
-
 
    //Mobile logic
    const [state, setState] = useState({
@@ -144,48 +105,29 @@ import {MenuElem } from '../../../domain/entities/menuEntity';
             <StyledLogo src={imageUrl} alt='logo'/>
         </Box>
         <Box sx={{ display: 'flex' ,width: '60%'}}>
-        {(isLoadingMenus)? (
+        {(menu==undefined)? (
             <h1>Loading menus</h1>
-        ):
+             ):
         (menu!=undefined)  && ( menu[0].attributes.menu[0].Menu.map((item:MenuElem) => {
             return (
-                <MenuItem
+              <MenuItem key={item.title}>
+              <Link href={item.url} key={item.title}><Typography sx={{ minWidth: 100 }}>{item.title}</Typography></Link>
+              </MenuItem>
+/*                 <MenuItem
                 component={Link}
                 // the 'to' prop (and any other props not recognized by MenuItem itself)
                 // will be passed down to the Link component
-                to={item.url}
+                href={item.url}
                 key={item.title}
                 >
-                    {item.title}
-                </MenuItem>
+                  {item.title}
+                </MenuItem> */
             );
           }))}
           </Box>
           <Box sx={{ display: 'flex', alignSelf:'center'}}>
             <Box sx={{ alignSelf:'center'}}>
-              <ReactCountryFlag
-                countryCode={lang[1]}
-                svg
-                cdnUrl="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.4.5/flags/1x1/"
-                cdnSuffix="svg"
-                title="US"
-                style={{borderRadius:20, marginBottom:5, height:20, width:20}}
-            />
-            </Box>
-            <Box>
-            <FormControl sx={{ m: 1, minWidth: 80 }}>
-                <StyledSelect
-                name="locales"
-                id="locales"
-                value={locale}
-                onChange={setLang}
-                autoWidth
-                variant='standard'
-                >
-                    <MenuItem value="en-CA">EN</MenuItem>
-                    <MenuItem value="fr-CA">FR</MenuItem>
-                </StyledSelect>
-            </FormControl>
+            <LanguageSwitcher />
             </Box>
             </Box>
             </Box>
@@ -215,55 +157,40 @@ import {MenuElem } from '../../../domain/entities/menuEntity';
               open: drawerOpen,
               onClose: handleDrawerClose,
             }}
+        
           >
             
-            <MenuList>
-            {(isLoadingMenus)? (
+            <MenuList   sx={{bgcolor: theme.palette.thirdly.main, height:'100%'}}>
+            {(menu==undefined)? (
             <h1>Loading menus</h1>
              ):(
             menu[0].attributes.menu[0].Menu.map((item:MenuElem)=> {
             return (
-                <MenuItem
+              <MenuItem
+               key={item.title}>
+              <Link href={item.url} key={item.title}><Typography sx={{ minWidth: 100 }}>{item.title}</Typography></Link>
+              </MenuItem>
+/*                 <MenuItem
                 component={Link}
                 // the 'to' prop (and any other props not recognized by MenuItem itself)
                 // will be passed down to the Link component
-                to={item.url}
+                href={item.url}
                 key={item.title}
                 >
                     {item.title}
-                </MenuItem>
+                </MenuItem> */
             );
           }))}
                 </MenuList>         
           </Drawer>
     
           <Box sx={{display: 'flex' }}>
-        <Box sx={{ padding:2,width: '100%', height:'80px'}}>
+        <Box sx={{ marginBottom:0.5, padding:2,width: '100%', height:'80px'}}>
              <img src={imageUrl} alt='logo' />
         </Box>
         <Box sx={{ display: 'flex', alignSelf:'flex-end'}}>
-        <ReactCountryFlag
-                countryCode={lang[1]}
-                svg
-                cdnUrl="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.4.5/flags/1x1/"
-                cdnSuffix="svg"
-                title="US"
-                style={{borderRadius:20, marginBottom:5, height:20, width:20}}
-            />
-            <FormControl sx={{ m: 1, minWidth: 80 }}>
-            <StyledSelect
-                name="locales"
-                id="locales"
-                value={locale}
-                onChange={setLang}
-                autoWidth
-                variant='standard'
-                >
-                    <MenuItem value="en-CA">EN</MenuItem>
-                    <MenuItem value="fr-CA">FR</MenuItem>
-                </StyledSelect>
-            </FormControl>
-            </Box>
+          <LanguageSwitcher />
+        </Box>
         </Box>
         </Toolbar>
       );
@@ -272,7 +199,7 @@ import {MenuElem } from '../../../domain/entities/menuEntity';
   
     return (
       <AppBar position="fixed" color="primary">
-      {isLoadingMenus ? (
+      {menu==undefined ? (
           <h1>Loading</h1>
       ):(
           mobileView ? displayMobile(menu) : displayDesktop(menu))

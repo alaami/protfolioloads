@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
 import MenuItem from '@mui/material/MenuItem';
 import  { useEffect } from "react";
 import { useCategoryViewModel } from "../../controller/CategoryViewModel";
 import { useCategoryStoreImplementation } from "../../../data/repositories/categoryStoreImplementation";
-
+import Link from 'next/link';
+import React from "react";
 const Categories = ({ handleClose}: any, ) => {
   const store = useCategoryStoreImplementation ();
     
@@ -31,7 +31,7 @@ const Categories = ({ handleClose}: any, ) => {
                             
                             <MenuItem component={Link} 
                             onClick={handleClose}  
-                            to={`/article/category/${category.attributes.slug}`}
+                            href={`/article/category/${category.attributes.slug}`}
                             key= {`category__${category.attributes.slug}`}>
                            {category.attributes.name}
                             </MenuItem>

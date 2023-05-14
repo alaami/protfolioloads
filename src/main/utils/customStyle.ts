@@ -1,4 +1,4 @@
-import {styled } from "@mui/material/styles";
+import {makeStyles, styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
@@ -17,6 +17,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
 const StyledDiv = styled("div")(({ theme }) => ({
   padding: theme.spacing(2),
 }));
+
 const StyledCard= styled(Card)(() => ({
   display: 'flex',
 }));
@@ -25,6 +26,7 @@ const StyledDivCard = styled("div")(() => ({
 }));
 const StyledLogo = styled("img")(() => ({
   height: '80px!important',
+  marginBottom:2,
 }));
 
 const StyledCardMedia= styled(CardMedia)(() => ({
@@ -62,13 +64,14 @@ const StyledSliderContentBox= styled(Box)(() => ({
   margin:'auto',
 }));
 
-const StyledPagePaper= styled(Paper)(() => ({
+const StyledPagePaper= styled(Paper)(({theme}) => ({
   padding:10, 
   margin:'auto',
   marginTop:40,
+  backgroundColor: theme.palette.thirdly.main,
 }));
 
-const StyledButton= styled(Button)(({theme}) => ({
+const StyledButton= styled(Button)(() => ({
   margin:5,
   padding:20,
   paddingLeft:50,
@@ -78,10 +81,26 @@ const StyledButton= styled(Button)(({theme}) => ({
 const StyledSelect= styled(Select)(() => ({
   width:60,
 }));
+/*styled('div')({
+  `
+  button.is-active {
+      background: $;
+      color: #fff;
 
+});*/
+const LanguageSwitcherStyled = styled('div')(({theme}) => ({
+  button: {
+    "&.is-active": {
+      background:theme.palette.fourthly.main,
+      color: theme.palette.fourthly.contrastText,
+    },
+    background:theme.palette.thirdly.main,
+    color: theme.palette.thirdly.contrastText,
+  },
+  marginBottom:1,
+}));
 
-
-export {StyledLogo, StyledSelect,StyledButton,StyledPagePaper,StyledCard,StyledCardMedia, StyledServiceCardMedia,StyledDiv,StyledPaper,StyledMainGrid, StyledDivCard,StyledSliderBox,StyledSliderCardMedia,StyledSliderContentBox}
+export {LanguageSwitcherStyled, StyledLogo, StyledSelect,StyledButton,StyledPagePaper,StyledCard,StyledCardMedia, StyledServiceCardMedia,StyledDiv,StyledPaper,StyledMainGrid, StyledDivCard,StyledSliderBox,StyledSliderCardMedia,StyledSliderContentBox}
 
 
 

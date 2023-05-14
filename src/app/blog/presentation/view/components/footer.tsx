@@ -5,10 +5,12 @@ import { useState } from 'react';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import MailOutline from '@mui/icons-material/MailOutline';
 import PhoneAndroid from '@mui/icons-material/PhoneAndroid';
+import WhatsApp from '@mui/icons-material/WhatsApp';
 import Copyright from '@mui/icons-material/Copyright';
-import { customTheme } from '../../../../../main/utils/customTheme';
-
+import React from "react";
+import { useTheme } from '@mui/material/styles';
 export default function Footer() {
+const theme = useTheme();
   const [value, setValue] = useState(0);
 
   return (
@@ -20,8 +22,8 @@ export default function Footer() {
     pl:10,
     pr:10,
     m: 1,
-    bgcolor:customTheme.palette.footer.main,
-    color:customTheme.palette.footer.contrastText,
+    bgcolor:theme.palette.footer.main,
+    color:theme.palette.thirdly.main,
     borderRadius: 1,
     }}
     >
@@ -36,7 +38,8 @@ export default function Footer() {
                 <Grid item xs={12} md={3}>
                 <Box sx={{margin: 'auto', padding:1 }}>
                         <Typography variant="body2" component="div" align="left" gutterBottom>
-                        <PhoneAndroid />  (+1) 818 751 7877
+                        <PhoneAndroid />  (+1) 514 572 8805 <br/>
+                        <WhatsApp />  (+1) 514 572 8805
                         </Typography>
                     </Box>
                 </Grid> 

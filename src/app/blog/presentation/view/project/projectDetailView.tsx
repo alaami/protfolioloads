@@ -1,7 +1,4 @@
-import { useEffect } from "react";
-import { useProjectViewModel } from "../../controller/projectViewModel";
-import { useProjectStoreImplementation } from "../../../data/repositories/projectStoreImplementation";
-import { useParams } from "react-router-dom";
+import { useContext } from "react";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Button from '@mui/material/Button';
@@ -10,32 +7,28 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import {StyledCard,StyledCardMedia,StyledPaper,StyledMainGrid, StyledDivCard,StyledSliderBox,StyledSliderCardMedia,StyledSliderContentBox} from  "../../../../../main/utils/customStyle"; 
-
+import { useRouter } from "next/router";
+import React from "react";
+import { I18nContext } from "next-i18next";
+import { useTheme } from "@mui/material/styles";
 
 const ProjectDetailView = (props:any) => {
-    const store = useProjectStoreImplementation ();
-    const locale = props.locale;
-    const {
-        getProjectsDetails,
-        project,
-        isLoadingSingleProject,
+    const { i18n: { language } } = useContext(I18nContext);
+    const router = useRouter()
+    const project=props.projectDetails.filter(function(item){
+        return item.attributes.locale == language;         
+      });
 
-    } = useProjectViewModel(store);
-    let { slug } = useParams();
-   useEffect(()=>{
-      if(slug!=undefined && locale!='')
-      getProjectsDetails(slug,locale);
-    },[getProjectsDetails,locale]);
-    let imageUrl:string ='';
+    let imageUrl ='';
     if(project!=undefined){
          imageUrl = project[0].attributes.image.data.attributes.url;
     }
-  
+    const theme = useTheme();
     return(
       <Stack>
         {
         
-        isLoadingSingleProject ? (
+        (project==undefined) ? (
             <h1>Loading project details...</h1>
         ):
         (project!=undefined)  && (    
@@ -93,7 +86,7 @@ const ProjectDetailView = (props:any) => {
             {/* End main content */}
             {/* Sidebar */}
             <Grid item xs={12} md={4}>
-              <Paper elevation={0}>
+              <Paper sx={{bgcolor:theme.palette.thirdly.main }} elevation={0}>
                 <Typography variant="h6" gutterBottom>
                   About
                 </Typography>
@@ -107,7 +100,7 @@ const ProjectDetailView = (props:any) => {
               {
               (project[0].attributes.blocks[2]!=undefined) && (
               project[0].attributes.blocks[2].buttons.map(button => (
-              <Button sx={{marginLeft:1, marginTop:1}} key={button.title} variant="contained" color="primary">
+              <Button sx={{marginLeft:1, marginTop:1}} key={button.title} variant="contained" color="secondary">
                  {button.title}
               </Button>
                 

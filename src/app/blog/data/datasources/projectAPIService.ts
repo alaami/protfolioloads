@@ -14,27 +14,23 @@ const queryDetails = qs.stringify({
   encodeValuesOnly: true,
 });
 
-function getProjects(pageNumber:number, pageSize:number,locale: string): Promise<Projects> {
+function getProjects(locale: string): Promise<Projects> {
   const query = qs.stringify(
     {
       populate: ['image'],
-      pagination: {
-        page: pageNumber,
-        pageSize: pageSize
-      }
     },
     {
       encodeValuesOnly: true
     }
   );
-     const url=`${process.env.REACT_APP_BACKEND_URL}/api/projects?${query}&locale=${locale}`;
+     const url=`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?${query}&locale=${locale}`;
     return axios.get(url).then(res=>create(res.data));
 }
 
 
 function getProjectDetails(slug:string,locale: string): Promise<Projects> {
 
-  const url=`${process.env.REACT_APP_BACKEND_URL}/api/projects?${queryDetails}&filters[slug]=${slug}&locale=${locale}`;
+  const url=`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?${queryDetails}&filters[slug]=${slug}&locale=${locale}`;
 
  return axios.get(url).then(res=>create(res.data));
 }

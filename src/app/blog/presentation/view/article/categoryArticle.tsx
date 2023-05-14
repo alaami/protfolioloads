@@ -1,24 +1,24 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router";
+import { useRouter } from "next/router";
 import { useArticlesStoreImplementation } from "../../../data/repositories/articleStoreImplementation";
 import { useArticlesViewModel } from "../../controller/articleViewModel";
 import Articles from "./articlesView";
 
-
+//ToDo
 const ArticleCategory = () => {
     const store = useArticlesStoreImplementation ();
-    
+    const router = useRouter()
+    const { slug } = router.query // get params
     const {
         getArticlesByCategory,
         categoryArticles,
         isLoadingSingleArticleByCategory,
 
     } = useArticlesViewModel(store);
-    let { slug } = useParams();
   useEffect(()=>{
     if(slug!=undefined){
       console.log("USE EFFECT FUNCTION TRIGGERED");
-      getArticlesByCategory(slug);
+      getArticlesByCategory(slug.toString());
     }
   },[getArticlesByCategory,slug]);
   return (

@@ -1,6 +1,6 @@
 import Card from "../components/card";
 //import Card from "../Card";
-
+import React from "react";
 const Articles = ({ articles}: any) => {
   const leftArticlesCount = Math.ceil(articles.length / 5);
   const leftArticles = articles.slice(0, leftArticlesCount);

@@ -2,35 +2,39 @@ import React, { useEffect } from "react";
 
 import { useArticlesViewModel } from "../../controller/articleViewModel";
 import { useArticlesStoreImplementation } from "../../../data/repositories/articleStoreImplementation";
-import { useParams } from "react-router-dom";
 import Moment from "react-moment";
 import ReactMarkdown from "react-markdown";
 import { Box } from "@mui/system";
 import Paper from "@mui/material/Paper";
 import { CardMedia, Stack, Typography } from "@mui/material";
+import { useRouter } from "next/router";
+
+
+//ToDo
 
 const ArticlesDetailView = () => {
     const store = useArticlesStoreImplementation ();
-    
+    const router = useRouter()
+    const { slug } = router.query
     const {
         getArticleDetails,
         article,
         isLoadingSingleArticle,
 
     } = useArticlesViewModel(store);
-    let { slug } = useParams();
+
     useEffect(()=>{
       if(slug!=undefined)
-        getArticleDetails(slug);
+        getArticleDetails(slug.toString());
     },[getArticleDetails]);
-    var imageUrl =''
+    let imageUrl =''
     if(article!=undefined){
          imageUrl =
         process.env.NODE_ENV !== "development"
           ? article[0].attributes.cover.data.attributes.url
           : process.env.REACT_APP_BACKEND_URL + article[0].attributes.cover.data.attributes.url;
     }
-  
+  //<ReactMarkdown children={article[0].attributes.blocks[0].body} /> add it to L69 
     return(
         <div className="App">
         
@@ -60,9 +64,7 @@ const ArticlesDetailView = () => {
                   </Box>
                 </CardMedia>
                 <Box sx={{margin:'auto', padding:10}}>
-
-                
-                <ReactMarkdown children={article[0].attributes.blocks[0].body} />
+                <ReactMarkdown>{article[0].attributes.blocks[0].body}</ReactMarkdown>
                   <p>
                     <Moment format="MMM Do YYYY">
                       {article[0].attributes.publishedAt}

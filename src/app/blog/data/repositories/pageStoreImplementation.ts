@@ -7,32 +7,22 @@ import type { PageStore } from "../../domain/repositories/pageStore";
 import type { PageStoreState } from "../redux/page/pageReducer";
 
 import { getPageAction, resetPageStoreAction } from "../redux/page/pageAcitons";
+import { getPage } from "../datasources/pageAPIService";
 
-const pageSelector = (state: AppRootState ) =>state.page;
+
 
 const usePageStoreImplementation= ():PageStore => {
     
-const{page, isLoadingPage}=useSelector<
-AppRootState,
-PageStoreState
-> (pageSelector);
-
-const dispatch= useDispatch();
-
-const loadPage=useCallback(
-    (pathname: string,locale:string) =>getPageAction(pathname,locale)(dispatch),
-    [dispatch]
-);
-const resetPageStore=useCallback(
+const loadPage=
+    (pathname: string,locale:string) =>getPage(pathname,locale).then(page=>page);
+    
+/* const resetPageStore=useCallback(
     () =>resetPageStoreAction()(dispatch),
     [dispatch]
-);
+); */
 
 return {
-page,
-isLoadingPage,
-loadPage,
-resetPageStore,
+loadPage
 };
 };
 export { usePageStoreImplementation };

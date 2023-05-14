@@ -1,32 +1,53 @@
 import React from "react";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
-import { Link } from "react-router-dom";
-import { StyledButton,StyledServiceCardMedia } from "../../../../../main/utils/customStyle";
+import { Box, CardActionArea, Paper, Stack } from '@mui/material';
+import Icon from '@mui/material/Icon';
+import { useTheme } from '@mui/material/styles';
 
 const CardService = ({ service }:any) => {
-   const imageUrl = service.attributes.image.data.attributes.url;
-  return (
-
-    <Card sx={{ maxWidth: 345, height: 400, marginBottom: 5 }}>
-      <CardActionArea>
-        <StyledServiceCardMedia
+   //const imageUrl = service.attributes.image.data.attributes.url;
+   const theme = useTheme();
+   /*
+           <StyledServiceCardMedia
           image={imageUrl}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" sx={{ fontWeight: 'bold' }} component="div">
-            {service.attributes.title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {service.attributes.description}
+   */
+  return (
+   <Stack>
+      <Card sx={{ padding:1, height:420,backgroundColor:theme.palette.thirdly.main}} elevation={0}>
+        <Paper sx={{width: '80%', margin:'auto', marginBottom: 1, textAlign:'center', height:150, backgroundColor:theme.palette.thirdly.main}} elevation={0} >
+            <h2 id="h2service">
+              {service.attributes.title}
+            </h2>
+            <Typography variant="body2" color="text.secondary">
+              {service.attributes.description}
+            </Typography>   
+       </Paper>
 
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+    <Box sx={{ 
+      
+      width: '15rem',
+      height: '15rem',
+      margin: 'auto',
+      backgroundColor:theme.palette.fourthly.main,
+      borderRadius: '50%'
+      ,display: 'flex'}}>
+        
+        <Box sx={{  border: 3,
+          borderColor:theme.palette.thirdly.main,
+          width: '14rem',
+          height: '14rem',
+          backgroundColor:theme.palette.fourthly.main,
+          borderRadius: '50%',
+          margin: 'auto',
+          marginTop: '0.3rem',display: 'flex', alignItems: 'center',justifyContent:'center' }}>
+          <Icon sx={{ fontSize: '150px !important' }}>{service.attributes.icon}</Icon>              
+          </Box>
+     </Box>
+     </Card>
+    </Stack>
   );
 };
 

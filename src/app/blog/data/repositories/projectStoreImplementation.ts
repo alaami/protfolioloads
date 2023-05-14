@@ -1,39 +1,20 @@
 import { useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
 
-import type { AppRootState } from "../../../../main/data/appStoreImplementation";
 import type { ProjectStore } from "../../domain/repositories/projectStore"; 
+import { getProjectDetails, getProjects } from "../datasources/projectAPIService";
 
-import type { ProjectStoreState } from "../redux/project/projectReducer";
 
-import { getProjectsAction, getProjectDetailsAction } from "../redux/project/projectAcitons";
-
-const projectSelector = (state: AppRootState ) =>state.projects;
 const useProjectStoreImplementation= ():ProjectStore => {
-    
-const{projects,project, isLoadingProjects, isLoadingSingleProject }=useSelector<
-AppRootState,
-ProjectStoreState
-> (projectSelector);
 
-const dispatch= useDispatch();
+const getProjectsAll=
+    (locale:string) =>getProjects(locale).then(projects=>projects);
 
-const getProjects=useCallback(
-    (currentPage:number,pageSize:number,locale:string) =>getProjectsAction(currentPage,pageSize, locale)(dispatch),
-    [dispatch]
-);
+const getProject=
+    (slug: string,locale:string) =>getProjectDetails(slug,locale).then(project=>project);
 
-const getProject=useCallback(
-    (slug: string,locale:string) =>getProjectDetailsAction(slug,locale)(dispatch),
-    [dispatch]
-);
 
 return {
-projects,
-project,
-isLoadingProjects,
-isLoadingSingleProject,
-getProjects,
+getProjectsAll,
 getProject,
 };
 };

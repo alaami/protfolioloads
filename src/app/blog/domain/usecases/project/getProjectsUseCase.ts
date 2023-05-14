@@ -1,10 +1,10 @@
 import type { ProjectStore } from "../../repositories/projectStore";
 
 
-type GetProjectStore= Pick <ProjectStore, "getProjects">;
+type GetProjectStore= Pick <ProjectStore, "getProjectsAll">;
 
-const getProjectsUseCase= (store: GetProjectStore,currentPage:number, pageSize:number,locale: string)=>{
-    store.getProjects(currentPage,pageSize,locale);
+const getProjectsUseCase= (store: GetProjectStore,locale: string)=>{
+    return store.getProjectsAll(locale);
 }
 
 export {getProjectsUseCase};

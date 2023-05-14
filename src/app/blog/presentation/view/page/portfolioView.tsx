@@ -1,50 +1,40 @@
-import {useEffect, useRef} from "react";
-
-import { usePageViewModel } from "../../controller/pageViewModel";
-import { usePageStoreImplementation } from "../../../data/repositories/pageStoreImplementation";
+import {useContext} from "react";
 import ReactMarkdown from "react-markdown";
-import { useLocation, useParams } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import CardMedia from "@mui/material/CardMedia";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import rehypeRaw from 'rehype-raw'
 import ProjectView from "../project/projectView";
 import { StyledPagePaper } from "../../../../../main/utils/customStyle";
-
+import { useRouter } from "next/router";
+import React from "react";
+import { I18nContext } from "next-i18next";
 const PortfolioView = (props:any) => {
-    const store = usePageStoreImplementation ();
-    const pathname = useLocation().pathname;
-    const firstRender = useRef(true);
-    const locale = props.locale;
-    const {
-        getPage,
-        resetPageStore,
-        page,
-        isLoadingPage
+    
+    const { i18n: { language } } = useContext(I18nContext);
+    const router = useRouter();
+    const pathname= router.pathname;
+    const page=props.portfolioPage.filter(function(item){
+        return item.attributes.locale == language;         
+      });
+    
+    const portfolioProjects=props.portfolioProjects.data.filter(function(item){
+        return item.attributes.locale == language;         
+      });
 
-    } = usePageViewModel(store);
-    
-    useEffect(()=>{   
-        if (firstRender.current) {
-            resetPageStore();
-            firstRender.current = false;
-          }
-        if(locale!=''){
-         getPage(pathname,locale);
-        }
-    },[getPage,locale]);
-    
-    var imageUrl =''
-    if(page!=undefined && !firstRender.current){
-         imageUrl = page.attributes.cover.data.attributes.url;
+    const filter={locale:language,pageSize:5}
+    const meta= props.portfolioProjects.meta;
+    const pageProps={portfolioProjects,meta,filter};
+    let imageUrl =''
+    if(page!=undefined){
+         imageUrl = page[0].attributes.cover.data.attributes.url;
+         pageProps.filter.pageSize=page[0].attributes.pageSettings.caseNumber;
     }
-  
     return(
         <div className="App">
         
-        {(isLoadingPage || firstRender.current)? (
+        {(page==undefined)? (
             <h1>Loading Page {pathname}</h1>
         ):
         (page!=undefined)  && (    
@@ -53,7 +43,7 @@ const PortfolioView = (props:any) => {
                 <CardMedia
                     className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
                     image={imageUrl}
-                    title={page.attributes.title}
+                    title={page[0].attributes.title}
                     sx={{height:600}}
                                     >
                    <Box sx={{display: 'flex',
@@ -63,16 +53,18 @@ const PortfolioView = (props:any) => {
                     height:'100%'}}>
                   <Box sx={{ alignSelf: 'center',margin:'auto'}}>
                   <Typography variant="h2" component="div"  align="center" gutterBottom>
-                  {page.attributes.title}
+                  {page[0].attributes.title}
                   </Typography>
                   </Box>
                   </Box>
                 </CardMedia>
                 <Box sx={{margin:'auto', padding:10}}>
-                <ReactMarkdown rehypePlugins={[rehypeRaw]}children={page.attributes.blocks[1].body} />
+                <ReactMarkdown>
+                    {page[0].attributes.blocks[1].body}
+                </ReactMarkdown>
                 </Box>
-                <Grid  container spacing={2}>
-                <ProjectView filter={{pageSize:8, locale:locale}} />
+                <Grid  container spacing={2}>               
+                <ProjectView {...pageProps} />
                 </Grid>
                 </StyledPagePaper>
               </Stack>
