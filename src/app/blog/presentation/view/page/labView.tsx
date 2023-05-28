@@ -43,9 +43,9 @@ const LabView = (props:any) => {
                     >
                    <StyledSliderBox>
                   <StyledSliderContentBox>
-                  <Typography variant="h2" component="div"  align="center" gutterBottom>
+                  <h1>
                   {page[0].attributes.title}
-                  </Typography>
+                  </h1>
                   </StyledSliderContentBox>
                   </StyledSliderBox>
                 </CardMedia>

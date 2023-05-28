@@ -15,6 +15,7 @@ import Icon from '@mui/material/Icon';
 import Divider from "@mui/material/Divider";
 import { List, ListItem, ListItemIcon, ListItemText, useTheme } from "@mui/material";
 import { CheckBox, Css } from "@mui/icons-material";
+import ServiceView from "../service/serviceView";
 const ServicesView = (props:any) => {
     const { i18n: { language } } = useContext(I18nContext);
     const router = useRouter()
@@ -27,6 +28,9 @@ const ServicesView = (props:any) => {
     if(page!=undefined){
          imageUrl = page[0].attributes.cover.data.attributes.url;
     }
+    const serviceViewServices=props.serviceViewServices.data.filter(function(item){
+        return item.attributes.locale == language;         
+      });
     return(
         <div className="App">
         
@@ -44,16 +48,19 @@ const ServicesView = (props:any) => {
                     >
                    <StyledSliderBox>
                   <StyledSliderContentBox>
-                  <h2 id="h1service">
+                  <h1>
                    {page[0].attributes.title}
-                  </h2>
+                  </h1>
                   </StyledSliderContentBox>
                   </StyledSliderBox>
                 </CardMedia>
                 <Grid  container spacing={2} >
-                    <Grid item xs={12} md={7} key="content__body" sx={{padding:10}}>
+                    <Grid item xs={12} md={12} spacing={2} key="content__body" sx={{padding:10}}>
                      <ReactMarkdown>{page[0].attributes.blocks[1].body}</ReactMarkdown>
                     </Grid>
+                    <Grid sx={{ display: "flex", alignContent: "space-around" }} container spacing={20}>
+                            <ServiceView homeServices={serviceViewServices} bgColor={theme.palette.secondary.main} />
+                        </Grid>
                 </Grid>                  
                 </StyledPagePaper>
               </Stack>

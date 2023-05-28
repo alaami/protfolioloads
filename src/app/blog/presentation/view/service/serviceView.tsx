@@ -3,6 +3,7 @@ import  Grid  from "@mui/material/Grid"
 import React from "react";
 const ServiceView = (homeServices: any) => {
   const services=homeServices.homeServices;
+  const bgColor=homeServices.bgColor;
     return(
         <>       
         {services==undefined ? (
@@ -14,6 +15,7 @@ const ServiceView = (homeServices: any) => {
                 <Grid item xs={12} md={6} key={`service__${service.attributes.slug}`}>
                   <CardService
                     service={service}
+                    bgcolor={bgColor}
                     key={`service__${service.attributes.slug}`}
                   />
                 </Grid>

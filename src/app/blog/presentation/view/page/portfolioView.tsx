@@ -52,9 +52,9 @@ const PortfolioView = (props:any) => {
                     m: 1,
                     height:'100%'}}>
                   <Box sx={{ alignSelf: 'center',margin:'auto'}}>
-                  <Typography variant="h2" component="div"  align="center" gutterBottom>
+                  <h1>
                   {page[0].attributes.title}
-                  </Typography>
+                  </h1>
                   </Box>
                   </Box>
                 </CardMedia>

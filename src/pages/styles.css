@@ -5,6 +5,19 @@ a {
   h1 {
     font-size: 45px;
   }
+
+  .h1home{
+    display:flex;
+    flex-direction: row;
+  }
+  .h1home:before,
+  .h1home:after{
+    content: "";
+    flex: 1 1;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+    margin: auto;
+  }
+
   #h1service{
     margin:10px auto;
     line-height:51px;

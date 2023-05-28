@@ -4,12 +4,13 @@ import{create} from '../models/serviceModel'
 import qs from 'qs';
 const query = qs.stringify({
   populate: ['image'], 
+  sort:['flag:asc']
 }, {
   encodeValuesOnly: true,
 });
 
 const queryDetails = qs.stringify({
-  populate: ['cover','blocks'], 
+  populate: ['cover','blocks']
 }, {
   encodeValuesOnly: true,
 });

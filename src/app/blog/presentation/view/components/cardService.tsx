@@ -6,14 +6,11 @@ import { Box, CardActionArea, Paper, Stack } from '@mui/material';
 import Icon from '@mui/material/Icon';
 import { useTheme } from '@mui/material/styles';
 
-const CardService = ({ service }:any) => {
+const CardService = (serviceProps:any) => {
    //const imageUrl = service.attributes.image.data.attributes.url;
    const theme = useTheme();
-   /*
-           <StyledServiceCardMedia
-          image={imageUrl}
-        />
-   */
+   const service=serviceProps.service;
+   const bgColor=serviceProps.bgcolor;
   return (
    <Stack>
       <Card sx={{ padding:1, height:420,backgroundColor:theme.palette.thirdly.main}} elevation={0}>
@@ -31,7 +28,7 @@ const CardService = ({ service }:any) => {
       width: '15rem',
       height: '15rem',
       margin: 'auto',
-      backgroundColor:theme.palette.fourthly.main,
+      backgroundColor:bgColor,
       borderRadius: '50%'
       ,display: 'flex'}}>
         
@@ -39,7 +36,7 @@ const CardService = ({ service }:any) => {
           borderColor:theme.palette.thirdly.main,
           width: '14rem',
           height: '14rem',
-          backgroundColor:theme.palette.fourthly.main,
+          backgroundColor:bgColor,
           borderRadius: '50%',
           margin: 'auto',
           marginTop: '0.3rem',display: 'flex', alignItems: 'center',justifyContent:'center' }}>

@@ -72,13 +72,12 @@ const HomeView = (props:any) => {
                 </Head>
                 <Bio content={page[0].attributes.blocks[0].body} />
                    
-                    <Box sx={{ width: '100%', marginTop: 2 }}>
-                        <h1 id="h1service">
+                    <Box sx={{ width: '100%', marginTop: 0 }}>
+                        <h1 className="h1home">
                             {page[0].attributes.blocks[2].sectionHeader[1].title}
                         </h1>
-                        <Divider sx={{ borderBottomWidth: 3,width:'30%',margin:'auto', marginBottom:2}}/>
                     </Box><Grid sx={{ display: "flex", alignContent: "space-around" }} container spacing={20}>
-                            <ServiceView homeServices={homeServices} />
+                            <ServiceView homeServices={homeServices} bgColor={theme.palette.fourthly.main} />
                         </Grid><Divider sx={{ borderBottomWidth: 3}}/><Box
                             sx={{
                                 display: 'flex',
