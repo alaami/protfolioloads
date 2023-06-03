@@ -13,12 +13,12 @@ const CardService = (serviceProps:any) => {
    const bgColor=serviceProps.bgcolor;
   return (
    <Stack>
-      <Card sx={{ padding:1, height:420,backgroundColor:theme.palette.thirdly.main}} elevation={0}>
+      <Card sx={{ padding:1, height:500,backgroundColor:theme.palette.thirdly.main}} elevation={0}>
         <Paper sx={{width: '80%', margin:'auto', marginBottom: 1, textAlign:'center', height:150, backgroundColor:theme.palette.thirdly.main}} elevation={0} >
             <h2 id="h2service">
               {service.attributes.title}
             </h2>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" style={{float:"left"}}>
               {service.attributes.description}
             </Typography>   
        </Paper>
