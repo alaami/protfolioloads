@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import ProjectView from "../project/projectView";
-import { StyledPagePaper } from "../../../../../main/utils/customStyle";
+import { StyledPagePaper, StyledSliderContentBox } from "../../../../../main/utils/customStyle";
 import { useRouter } from "next/router";
 import React from "react";
 import { I18nContext } from "next-i18next";
@@ -51,11 +51,11 @@ const PortfolioView = (props:any) => {
                     p: 1,
                     m: 1,
                     height:'100%'}}>
-                  <Box sx={{ alignSelf: 'center',margin:'auto'}}>
+                  <StyledSliderContentBox>
                   <h1>
                   {page[0].attributes.title}
                   </h1>
-                  </Box>
+                  </StyledSliderContentBox>
                   </Box>
                 </CardMedia>
                 <Box sx={{margin:'auto', padding:10}}>

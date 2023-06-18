@@ -1,4 +1,4 @@
-import {Button, Grid, Paper, Stack, Typography} from "@mui/material"
+import { Paper, Stack, Typography} from "@mui/material"
 import { Box } from "@mui/system"
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { StyledButton } from "../../../../../main/utils/customStyle";
@@ -12,11 +12,11 @@ export const Submission = (props:any) => {
     sx={{
     display: 'flex',
     justifyContent: 'space-between',
-    bgcolor: theme.palette.thirdly.main,
+    bgcolor: 'unset',
     borderRadius: 1,
     }}
 > 
-  <Paper sx={{ width:'50%',margin:'auto', marginTop:2, marginBottom:2, bgcolor: theme.palette.thirdly.main}} elevation={0}>
+  <Paper sx={{ width:'50%',margin:'auto', marginTop:2, marginBottom:2, bgcolor:'unset'}} elevation={0}>
         <Stack>
         <Box>
           <h1 id="h1submit">
@@ -27,7 +27,7 @@ export const Submission = (props:any) => {
           {props.content.description}
           </Typography>
           <Box sx={{ margin: 'auto' , width:'30%'}}>
-          <StyledButton variant="outlined" startIcon={<MailOutlineIcon />} onClick={() => window.location.href = 'mailto:info@loadstartech.com'}>{props.content.action.title}</StyledButton>
+          <StyledButton variant="outlined" startIcon={<MailOutlineIcon />} onClick={() => window.location.href = 'mailto:info@fititsolution.com'}>{props.content.action.title}</StyledButton>
           </Box>
           </Box>
         </Stack>

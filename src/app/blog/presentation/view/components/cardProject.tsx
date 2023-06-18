@@ -10,15 +10,15 @@ const CardProject = ({ project }:any) => {
   return (
     <Grid container spacing={2} sx={{margin:'auto', padding:2, marginTop:2 }} >
     <Grid item xs={12} md={4} >
-      <Paper elevation={0}>
-          <Box sx={{padding:2, margin:'auto', marginTop:1, bgcolor:theme.palette.thirdly.main }}>
+      <Paper elevation={0} sx={{backgroundColor:'unset'}}>
+          <Box sx={{padding:2, margin:'auto', marginTop:1, backgroundColor:'unset' }}>
               <img src={imageUrl} alt={project.attributes.title}/>
           </Box>
      </Paper>
      
     </Grid>
     <Grid item xs={12} md={8} >
-    <Paper sx={{margin:'auto', padding:2,marginBottom:5, marginTop:2, bgcolor:theme.palette.thirdly.main }} elevation={0}>
+    <Paper sx={{margin:'auto', padding:2,marginBottom:5, marginTop:2, backgroundColor:'unset' }} elevation={0}>
           <Stack>
           <Box sx={{ display: 'flex',flexDirection: 'column'}}>
             <Box>

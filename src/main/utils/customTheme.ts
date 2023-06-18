@@ -1,31 +1,37 @@
 import { createTheme, PaletteColor } from "@mui/material/styles";
 import { orange } from "@mui/material/colors";
-
+import "@fontsource/monda"; 
 
 const { palette } = createTheme();
 const customTheme = createTheme({
+  typography: {
+    fontFamily: 
+      '"monda"',
+  },
     palette: {
       primary: {
-        main: '#097392',
-        contrastText: '#FFF0CE',
+      //  main: '#097392',
+      //contrastText: '#FFF0CE',
+        main: '#D7CEC7',
+        contrastText: '#000',
       },
       secondary: {
-        main: '#83B4B3',
-        contrastText:  '#FFF0CE',
+        main: '#565656',
+        contrastText:  '#76323F',
       },
       thirdly: palette.augmentColor({
         color: {
-          main: '#FFF0CE',
-          contrastText:  '#383838',
+          main: '#76323F',
+          contrastText:  '#fff',
         }, }),
         fourthly: palette.augmentColor({
           color: {
-            main: '#D55534',
-            contrastText: '#383838',
+            main: '#C09F80',
+            contrastText: '#fff',
           }, }),
       neutral: {
-        main: '#64748B',
-        contrastText: '#fff',
+        main: '#fff',
+        contrastText: '#000',
       },
       footer: {
         main: '#383838',

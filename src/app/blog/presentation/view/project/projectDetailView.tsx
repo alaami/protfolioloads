@@ -86,7 +86,7 @@ const ProjectDetailView = (props:any) => {
             {/* End main content */}
             {/* Sidebar */}
             <Grid item xs={12} md={4}>
-              <Paper sx={{bgcolor:theme.palette.thirdly.main }} elevation={0}>
+              <Paper sx={{backgroundColor:'unset' }} elevation={0}>
                 <Typography variant="h6" gutterBottom>
                   About
                 </Typography>

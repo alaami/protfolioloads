@@ -13,10 +13,10 @@ export const Bio = (props:any) => {
   return (
 <StyledPaper elevation={0}>
 <Grid container spacing={2} marginBottom={5}>
-  <Grid item xs={12} md={6} lg={6} xl={6}   >
-  <Paper sx={{margin:'auto', padding:5,marginBottom:5, marginTop:5, color:theme.palette.secondary.contrastText,backgroundColor:theme.palette.secondary.main}} elevation={0}>
+  <Grid item xs={12} md={6} lg={6} xl={6}  >
+  <Paper sx={{margin:'auto', padding:5,marginBottom:5, marginTop:5, fontSize:20,color:theme.palette.secondary.contrastText,backgroundColor:'unset'}} elevation={0}>
         <Stack>
-        <Box>
+        <Box >
         
         <ReactMarkdown rehypePlugins={[rehypeRaw]}>{props.content}</ReactMarkdown>
           </Box>
@@ -28,7 +28,7 @@ export const Bio = (props:any) => {
           alignItems: 'flex-start',
 
           height:'100%'}}>
-    <Paper sx={{margin:'auto',marginTop:0,backgroundColor:theme.palette.secondary.main}} elevation={0}>
+    <Paper sx={{margin:'auto',marginTop:0,color:'unset', backgroundColor:'unset'}} elevation={0}>
     <CardMedia
         component="img"
         height="300"

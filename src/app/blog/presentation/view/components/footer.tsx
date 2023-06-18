@@ -23,7 +23,7 @@ const theme = useTheme();
     pr:10,
     m: 1,
     bgcolor:theme.palette.footer.main,
-    color:theme.palette.thirdly.main,
+    color:theme.palette.thirdly.contrastText,
     borderRadius: 1,
     }}
     >
@@ -31,7 +31,7 @@ const theme = useTheme();
                 <Grid item xs={12} md={3}>
                     <Box sx={{margin: 'auto', padding:1 }}>
                         <Typography variant="body2" component="div" align="left" gutterBottom>
-                        <Copyright />  2022 LoadStar | All right reserved
+                        <Copyright />  2018 - {(new Date().getFullYear())} Fit IT Solutions | All right reserved
                         </Typography>
                     </Box>
                 </Grid> 
@@ -47,7 +47,7 @@ const theme = useTheme();
                     <Box sx={{margin: 'auto', padding:1 }}>
                     
                         <Typography variant="body2" component="div" align="left" gutterBottom>
-                        <MailOutline />  info@loadstartech.com
+                        <MailOutline />  info@fititsolution.com
                         </Typography>
                     </Box>
                 </Grid> 
@@ -55,7 +55,7 @@ const theme = useTheme();
                     <Box sx={{margin: 'auto', padding:1 }}>
                     
                         <Typography variant="body2" component="div" align="left" gutterBottom>
-                        <LocationOnIcon />  ON, Canada
+                        <LocationOnIcon />  Montreal, Canada
                         </Typography>
                     </Box>
                 </Grid> 

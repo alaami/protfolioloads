@@ -18,7 +18,7 @@ export default function Document() {
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit-icons.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.js"></script>
       </Head>
-      <body style={{backgroundColor:customTheme.palette.thirdly.main}}>
+      <body style={{backgroundColor:customTheme.palette.neutral.main,color:customTheme.palette.neutral.contrastText}}>
         <Main />
         <NextScript />
       </body>

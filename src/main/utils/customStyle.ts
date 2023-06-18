@@ -1,4 +1,4 @@
-import {makeStyles, styled } from "@mui/material/styles";
+import {styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
@@ -8,8 +8,8 @@ import  Button  from "@mui/material/Button";
 import Select from '@mui/material/Select';
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.secondary.main,
-  color: theme.palette.secondary.contrastText,
+  backgroundColor: theme.palette.primary.main,
+  color: theme.palette.primary.contrastText,
   marginBottom: theme.spacing(2),
   marginTop: theme.spacing(13),
 }));
@@ -62,20 +62,27 @@ const StyledSliderBox= styled(Box)(() => ({
 const StyledSliderContentBox= styled(Box)(() => ({
   alignSelf: 'center',
   margin:'auto',
+  padding:20, 
+  background:'rgba(200,230,230,0.8)',
 }));
 
 const StyledPagePaper= styled(Paper)(({theme}) => ({
   padding:10, 
   margin:'auto',
   marginTop:40,
-  backgroundColor: theme.palette.thirdly.main,
+  backgroundColor: theme.palette.primary.main,
 }));
 
-const StyledButton= styled(Button)(() => ({
+const StyledButton= styled(Button)(({theme}) => ({
   margin:5,
+  color: theme.palette.secondary.contrastText,
+  border: '1px solid'+theme.palette.secondary.contrastText,
   padding:20,
   paddingLeft:50,
   paddingRight:50,
+  ":hover":{
+    border: '1px solid'+theme.palette.primary.contrastText,
+  }
 })); 
 
 const StyledSelect= styled(Select)(() => ({
@@ -91,16 +98,28 @@ const StyledSelect= styled(Select)(() => ({
 const LanguageSwitcherStyled = styled('div')(({theme}) => ({
   button: {
     "&.is-active": {
-      background:theme.palette.fourthly.main,
-      color: theme.palette.fourthly.contrastText,
+      background:theme.palette.primary.main,
+      color: theme.palette.primary.contrastText,
+      fontWeight:'bold',
     },
-    background:theme.palette.thirdly.main,
-    color: theme.palette.thirdly.contrastText,
+    background:theme.palette.fourthly.main,
+    color: theme.palette.fourthly.contrastText,
   },
   marginBottom:1,
 }));
+const StyledClientItem = styled("div")(({theme}) => ({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '250px',
+  width: '100%',
+  background:theme.palette.fourthly.main,
+  color: theme.palette.fourthly.contrastText,
+  margin: '15px',
+  fontSize: '4em',
+}));
 
-export {LanguageSwitcherStyled, StyledLogo, StyledSelect,StyledButton,StyledPagePaper,StyledCard,StyledCardMedia, StyledServiceCardMedia,StyledDiv,StyledPaper,StyledMainGrid, StyledDivCard,StyledSliderBox,StyledSliderCardMedia,StyledSliderContentBox}
+export {StyledClientItem,LanguageSwitcherStyled, StyledLogo, StyledSelect,StyledButton,StyledPagePaper,StyledCard,StyledCardMedia, StyledServiceCardMedia,StyledDiv,StyledPaper,StyledMainGrid, StyledDivCard,StyledSliderBox,StyledSliderCardMedia,StyledSliderContentBox}
 
 
 

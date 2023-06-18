@@ -4,6 +4,7 @@ import React from "react";
 const ServiceView = (homeServices: any) => {
   const services=homeServices.homeServices;
   const bgColor=homeServices.bgColor;
+  const color=homeServices.color;
     return(
         <>       
         {services==undefined ? (
@@ -16,6 +17,7 @@ const ServiceView = (homeServices: any) => {
                   <CardService
                     service={service}
                     bgcolor={bgColor}
+                    color={color}
                     key={`service__${service.attributes.slug}`}
                   />
                 </Grid>

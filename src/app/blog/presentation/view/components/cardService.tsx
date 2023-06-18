@@ -11,14 +11,15 @@ const CardService = (serviceProps:any) => {
    const theme = useTheme();
    const service=serviceProps.service;
    const bgColor=serviceProps.bgcolor;
+   const color=serviceProps.color;
   return (
    <Stack>
-      <Card sx={{ padding:1, height:500,backgroundColor:theme.palette.thirdly.main}} elevation={0}>
-        <Paper sx={{width: '80%', margin:'auto', marginBottom: 1, textAlign:'center', height:150, backgroundColor:theme.palette.thirdly.main}} elevation={0} >
+      <Card sx={{ padding:1, height:500,backgroundColor:'unset'}} elevation={0}>
+        <Paper sx={{width: '80%', margin:'auto', marginBottom: 1, textAlign:'center', height:150,backgroundColor:'unset'}} elevation={0} >
             <h2 id="h2service">
               {service.attributes.title}
             </h2>
-            <Typography variant="body2" color="text.secondary" style={{float:"left"}}>
+            <Typography variant="body2" color="text.secondary" style={{float:"left", fontSize:18}}>
               {service.attributes.description}
             </Typography>   
        </Paper>
@@ -33,10 +34,11 @@ const CardService = (serviceProps:any) => {
       ,display: 'flex'}}>
         
         <Box sx={{  border: 3,
-          borderColor:theme.palette.thirdly.main,
+          borderColor:'unset',
           width: '14rem',
           height: '14rem',
           backgroundColor:bgColor,
+          color:color,
           borderRadius: '50%',
           margin: 'auto',
           marginTop: '0.3rem',display: 'flex', alignItems: 'center',justifyContent:'center' }}>

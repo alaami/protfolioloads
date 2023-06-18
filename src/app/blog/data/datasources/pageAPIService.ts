@@ -3,7 +3,7 @@ import axios from 'axios';
 import{create} from '../models/pageModel'
 import qs from 'qs';
 const queryDetails = qs.stringify({
-  populate: 'blocks.servicecard.image,blocks.sectionHeader,blocks.action,cover,seo,pageSettings', 
+  populate: 'blocks.servicecard.image,blocks.sectionHeader, blocks.files,blocks.action,cover,seo,pageSettings', 
   //populate=*,blocks.servicecard
 }, {
   encodeValuesOnly: true,

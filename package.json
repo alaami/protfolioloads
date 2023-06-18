@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@fontsource/monda": "^5.0.3",
     "@fontsource/roboto": "^4.5.8",
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.11",
@@ -22,6 +23,7 @@
     "react": "^18.2.0",
     "react-country-flag": "^3.0.2",
     "react-dom": "^18.2.0",
+    "react-elastic-carousel": "^0.11.5",
     "react-helmet": "^6.1.0",
     "react-markdown": "^8.0.3",
     "react-moment": "^1.1.2",
@@ -29,6 +31,7 @@
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
     "rehype-raw": "^6.1.1",
+    "styled-components": "^6.0.0-rc.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
