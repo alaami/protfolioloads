@@ -10,41 +10,12 @@ import { useProjectViewModel } from "@/app/blog/presentation/controller/projectV
 import { useServiceViewModel } from "@/app/blog/presentation/controller/serviceViewModel";
 import HomeView from "@/app/blog/presentation/view/page/homeview";
 import React from "react";
-//import { appStoreImplementation } from "../data/appStoreImplementation";
-//import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
-//import { BrowserRouter as Router, Routes, Route, Link } from 'next/router';
-/* import ArticleCategory from "../../app/blog/presentation/view/article/categoryArticle";
-import AboutView from "../../app/blog/presentation/view/page/aboutView";
-import ContactView from "../../app/blog/presentation/view/page/contactView";
-import Header from "../../app/blog/presentation/view/components/Header";
-
-import Footer from "../../app/blog/presentation/view/components/footer";
-import PortfolioView from "../../app/blog/presentation/view/page/portfolioView";
-import ProjectDetailView from "../../app/blog/presentation/view/project/projectDetailView";
-import { customTheme } from "../utils/customTheme";
-import LabView from "../../app/blog/presentation/view/page/labView"; */
 
 function IndexView({homePage, homeProjects,homeServices}) {
 
   let props={homePage,homeServices,homeProjects};
   return (
-    <HomeView {...props}  />
-    //<Router>
-
-     //   <HomeView pathname="/home" locale={locale}/>
-            
-/*           <Routes>
-          <Route path="/" element={<HomeView pathname="/home" locale={locale} />} />
-          <Route path="/about" element={<AboutView locale={locale} />} />
-          <Route path="/lab" element={<LabView locale={locale}/>} />
-          <Route path="/portfolio" element={<PortfolioView locale={locale}/>} />
-          <Route path="/contact" element={<ContactView />} />
-          <Route path="/article/:slug" element={<ArticlesDetailView />}  />
-          <Route path="/project/:slug" element={<ProjectDetailView locale={locale}/>}  />
-          <Route path="/article/category/:slug"  element={<ArticleCategory />} />
-          </Routes> */
-         
- //   </Router>
+    <HomeView {...props}  />         
   );
 } 
 

@@ -6,38 +6,38 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
 <url>
-  <loc>https://www.loadstartech.com/</loc>
+  <loc>https://www.fititsolution.com/</loc>
   <lastmod>2022-11-09T23:26:56+00:00</lastmod>
-  <xhtml:link rel="alternate" "hreflang="fr-CA" href="https://www.loadstartech.com/fr/"/>
+  <xhtml:link rel="alternate" "hreflang="fr-CA" href="https://www.fititsolution.com/fr/"/>
 </url>
 <url>
-  <loc>https://www.loadstartech.com/fr/</loc>
+  <loc>https://www.fititsolution.com/fr/</loc>
   <lastmod>2022-11-09T23:26:56+00:00</lastmod>
-  <xhtml:link rel="alternate" "hreflang="en-CA" href="https://www.loadstartech.com/"/>
+  <xhtml:link rel="alternate" "hreflang="en-CA" href="https://www.fititsolution.com/"/>
 </url>
 
 <url>
-  <loc>https://www.loadstartech.com/about/</loc>
-  <xhtml:link rel="alternate" "hreflang="fr-CA" href="https://www.loadstartech.com/fr/about/"/>
+  <loc>https://www.fititsolution.com/about/</loc>
+  <xhtml:link rel="alternate" "hreflang="fr-CA" href="https://www.fititsolution.com/fr/about/"/>
 </url>
 <url>
-  <loc>https://www.loadstartech.com/fr/about/</loc>
-  <xhtml:link rel="alternate" "hreflang="en-CA" href="https://www.loadstartech.com/about/"/>
+  <loc>https://www.fititsolution.com/fr/about/</loc>
+  <xhtml:link rel="alternate" "hreflang="en-CA" href="https://www.fititsolution.com/about/"/>
 </url>
 <url>
-  <loc>https://www.loadstartech.com/portfolio/</loc>
-  <xhtml:link rel="alternate" "hreflang="fr-CA" href="https://www.loadstartech.com/fr/portfolio/"/>
+  <loc>https://www.fititsolution.com/portfolio/</loc>
+  <xhtml:link rel="alternate" "hreflang="fr-CA" href="https://www.fititsolution.com/fr/portfolio/"/>
 </url>
 <url>
-  <loc>https://www.loadstartech.com/fr/portfolio/</loc>
-  <xhtml:link rel="alternate" "hreflang="en-CA" href="https://www.loadstartech.com/portfolio/"/>
+  <loc>https://www.fititsolution.com/fr/portfolio/</loc>
+  <xhtml:link rel="alternate" "hreflang="en-CA" href="https://www.fititsolution.com/portfolio/"/>
 </url>
 <url>
-  <loc>https://www.loadstartech.com/lab/</loc>
-  <xhtml:link rel="alternate" "hreflang="fr-CA" href="https://www.loadstartech.com/fr/lab/"/>
+  <loc>https://www.fititsolution.com/service-view/</loc>
+  <xhtml:link rel="alternate" "hreflang="fr-CA" href="https://www.fititsolution.com/fr/service-view/"/>
 </url>
 <url>
-  <loc>https://www.loadstartech.com/fr/lab/</loc>
-  <xhtml:link rel="alternate" "hreflang="en-CA" href="https://www.loadstartech.com/lab/"/>
+  <loc>https://www.fititsolution.com/fr/service-view/</loc>
+  <xhtml:link rel="alternate" "hreflang="en-CA" href="https://www.fititsolution.com/service-view/"/>
 </url>
 </urlset>

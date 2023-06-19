@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import ReactMarkdown from "react-markdown";
 import Stack from "@mui/material/Stack";
-import Paper from "@mui/material/Paper";
 import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
 import { StyledPagePaper, StyledSliderBox, StyledSliderContentBox } from "../../../../../main/utils/customStyle";
@@ -9,7 +8,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { I18nContext } from "next-i18next";
 import Divider from "@mui/material/Divider";
-import { List, ListItem, ListItemIcon, ListItemText, useTheme } from "@mui/material";
+import { ListItem, ListItemIcon, ListItemText, useTheme } from "@mui/material";
 import { StarBorderOutlined } from "@mui/icons-material";
 import { ClientCarousel } from "../components/ClientCarousel";
 const AboutView = (props: any) => {

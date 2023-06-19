@@ -1,15 +1,10 @@
-import { useCallback, useContext, useEffect, useLayoutEffect, useRef } from "react";
-
-import { usePageViewModel } from "../../controller/pageViewModel";
-import { usePageStoreImplementation } from "../../../data/repositories/pageStoreImplementation";
+import {useContext} from "react";
 import ReactMarkdown from "react-markdown";
 import Stack from "@mui/material/Stack";
 import CardMedia from "@mui/material/CardMedia";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import rehypeRaw from 'rehype-raw'
 import {StyledPagePaper, StyledSliderBox,StyledSliderContentBox} from  "../../../../../main/utils/customStyle"; 
-import ArticlesView from "../article/articleView";
 import { useRouter } from "next/router";
 import React from "react";
 import { I18nContext } from "next-i18next";

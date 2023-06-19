@@ -21,7 +21,7 @@ const HomeView = (props: any) => {
     const { i18n: { language } } = useContext(I18nContext);
     const router = useRouter()
     const pathname = router.pathname;
-    const url = 'https://www.loadstartech.com/';
+    const url = 'https://www.fititsolution.com/';
     const page = props.homePage.filter(function (item) {
         return item.attributes.locale == language;
     });
