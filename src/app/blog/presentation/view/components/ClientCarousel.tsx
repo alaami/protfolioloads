@@ -20,11 +20,11 @@ export const ClientCarousel = (props: any) => {
           return (
 
             <StyledClientItem key={item.id}>
-              <CardMedia
-               
-                image={imageUrl}
-                sx={{ height: '100%', width: '100%' }}
-              ></CardMedia>
+              <img
+                style={{height:'120px'}}
+                src={imageUrl}
+                
+              />
             </StyledClientItem>
           );
         })}

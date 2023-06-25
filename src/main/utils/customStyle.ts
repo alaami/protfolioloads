@@ -111,11 +111,9 @@ const StyledClientItem = styled("div")(({theme}) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  height: '250px',
-  width: '100%',
-  background:theme.palette.fourthly.main,
-  color: theme.palette.fourthly.contrastText,
+  background:theme.palette.neutral.main,
   margin: '15px',
+  padding:'15px',
   fontSize: '4em',
 }));
 
