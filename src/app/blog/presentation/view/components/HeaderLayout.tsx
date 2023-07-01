@@ -104,28 +104,23 @@ export default function HeaderLayout(props: any) {
     const imageUrl = "/logo.svg";
     return (
       <>
-        <Box sx={{ display: 'flex', height: 100, bgcolor:theme.palette.thirdly.main, color:theme.palette.thirdly.contrastText  }}>
-          <Box sx={{ padding: 1, width: '20%' }}>
-            <StyledLogo src={imageUrl} alt='logo' />
-          </Box>
-          <Box sx={{ display: 'flex', width: '60%' }}>
+        <Box sx={{ display: 'flex', padding:1,justifyContent: 'space-between', alignItems: 'center', height: 80, bgcolor: theme.palette.neutral.main, color: theme.palette.secondary.contrastText }}>
+          <StyledLogo src={imageUrl} alt='logo' />
+          <Box sx={{ display: 'flex' }}>
             {(menu == undefined) ? (
               <h1>Loading menus</h1>
             ) :
-              (menu != undefined) && (menu[0].attributes.menu[0].Menu.map((item: MenuElem, index) => {
-                return (
-                  <MenuItem key={item.title} onClick={(event) => onMenuItemClick(event, index)}
-                    selected={index === selected} >
-                    <Link href={item.url} key={item.title}><Typography sx={{ minWidth: 100 }}>{item.title}</Typography></Link>
-                  </MenuItem>
-                );
-              }))}
+              (
+                menu != undefined) && (menu[0].attributes.menu[0].Menu.map((item: MenuElem, index) => {
+                  return (
+                    <MenuItem key={item.title} onClick={(event) => onMenuItemClick(event, index)}
+                      selected={index === selected} >
+                      <Link href={item.url} key={item.title}><Typography sx={{ minWidth: 100 }}>{item.title}</Typography></Link>
+                    </MenuItem>
+                  );
+                }))}
           </Box>
-          <Box sx={{ display: 'flex', alignSelf: 'center' }}>
-            <Box sx={{ alignSelf: 'center' }}>
-              <LanguageSwitcher />
-            </Box>
-          </Box>
+          <LanguageSwitcher />
         </Box>
       </>);
   };
@@ -134,52 +129,50 @@ export default function HeaderLayout(props: any) {
     const imageUrl = "/logo.svg";
 
     return (
-      <Toolbar sx={{bgcolor:theme.palette.thirdly.main}}>
-        <IconButton
-          {...{
-            edge: "start",
-            color: "inherit",
-            "aria-label": "menu",
-            "aria-haspopup": "true",
-            onClick: handleDrawerOpen,
-          }}
-        >
-          <MenuIcon />
-        </IconButton>
+      <Toolbar sx={{ justifyContent: 'space-between', alignItems: 'center', height: 80, bgcolor: theme.palette.neutral.main, color: theme.palette.secondary.contrastText }}>
+        <Box>
+          <IconButton
+            {...{
+              edge: "start",
+              color: "inherit",
+              "aria-label": "menu",
+              "aria-haspopup": "true",
+              onClick: handleDrawerOpen,
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
 
-        <Drawer
-          {...{
-            anchor: "left",
-            open: drawerOpen,
-            onClose: handleDrawerClose,
-          }}
+          <Drawer
+            {...{
+              anchor: "left",
+              open: drawerOpen,
+              onClose: handleDrawerClose,
+            }}
 
-        >
+          >
 
-          <MenuList sx={{ bgcolor: theme.palette.thirdly.main, height: '100%' }}>
-            {(menu == undefined) ? (
-              <h1>Loading menus</h1>
-            ) : (
-              menu[0].attributes.menu[0].Menu.map((item: MenuElem,index) => {
-                return (
-                  <MenuItem
-                    key={item.title} onClick={(event) => onMenuItemClick(event, index)}
-                    selected={index === selected}>
-                    <Link href={item.url} key={item.title}><Typography sx={{ minWidth: 100 }}>{item.title}</Typography></Link>
-                  </MenuItem>
-                );
-              }))}
-          </MenuList>
-        </Drawer>
+            <MenuList sx={{ bgcolor: theme.palette.thirdly.main, height: '100%' }}>
+              {(menu == undefined) ? (
+                <h1>Loading menus</h1>
+              ) : (
+                menu[0].attributes.menu[0].Menu.map((item: MenuElem, index) => {
+                  return (
+                    <MenuItem
+                      key={item.title} onClick={(event) => onMenuItemClick(event, index)}
+                      selected={index === selected}>
+                      <Link href={item.url} key={item.title}><Typography sx={{ minWidth: 100 }}>{item.title}</Typography></Link>
+                    </MenuItem>
+                  );
+                }))}
+            </MenuList>
+          </Drawer>
 
-        <Box sx={{ display: 'flex' }}>
-          <Box sx={{ marginBottom: 0.5, padding: 2, width: '100%', height: '80px' }}>
-            <StyledLogo src={imageUrl} alt='logo' />
-          </Box>
-          <Box sx={{ display: 'flex', alignSelf: 'flex-end' }}>
-            <LanguageSwitcher />
-          </Box>
+
+          <StyledLogo src={imageUrl} alt='logo' />
         </Box>
+        <LanguageSwitcher />
+
       </Toolbar>
     );
   };

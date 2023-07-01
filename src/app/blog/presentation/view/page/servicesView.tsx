@@ -58,10 +58,8 @@ const ServicesView = (props:any) => {
                     <Grid item xs={12} md={12} spacing={2} key="content__body" sx={{padding:10}}>
                      <ReactMarkdown>{page[0].attributes.blocks[1].body}</ReactMarkdown>
                     </Grid>
-                    <Grid sx={{ display: "flex", alignContent: "space-around" }} container spacing={20}>
-                            <ServiceView homeServices={serviceViewServices} bgColor={theme.palette.thirdly.main} color={theme.palette.primary.main}/>
-                        </Grid>
-                </Grid>                  
+                </Grid>
+                <ServiceView homeServices={serviceViewServices} bgColor={theme.palette.thirdly.main} color={theme.palette.primary.main}/>                 
                 </StyledPagePaper>
               </Stack>
            

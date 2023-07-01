@@ -30,7 +30,7 @@ const AboutView = (props: any) => {
                 <h1>Loading Page {pathname}</h1>
             ) :
                 (page != undefined) && (
-                    <Stack>
+                    <>
                         <StyledPagePaper elevation={0}>
                             <CardMedia
                                 className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
@@ -71,7 +71,7 @@ const AboutView = (props: any) => {
                             <ClientCarousel clientItems={page[0].attributes.blocks[5].files.data} />
                             <Divider sx={{ borderBottomWidth: 3 }} />
                         </StyledPagePaper>
-                    </Stack>
+                    </>
 
                 )}
 

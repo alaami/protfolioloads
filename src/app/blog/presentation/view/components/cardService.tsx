@@ -14,7 +14,7 @@ const CardService = (serviceProps:any) => {
    const color=serviceProps.color;
   return (
    <Stack>
-      <Card sx={{ padding:1, height:500,backgroundColor:'unset'}} elevation={0}>
+      <Card sx={{ padding:1,backgroundColor:'unset'}} elevation={0}>
         <Paper sx={{width: '80%', margin:'auto', marginBottom: 1, textAlign:'center', height:150,backgroundColor:'unset'}} elevation={0} >
             <h2 id="h2service">
               {service.attributes.title}

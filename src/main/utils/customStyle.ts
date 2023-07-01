@@ -25,7 +25,7 @@ const StyledDivCard = styled("div")(() => ({
   flex: 1,
 }));
 const StyledLogo = styled("img")(() => ({
-  height: '80px!important',
+  height: '50px!important',
   marginBottom:2,
 }));
 
@@ -98,8 +98,8 @@ const StyledSelect= styled(Select)(() => ({
 const LanguageSwitcherStyled = styled('div')(({theme}) => ({
   button: {
     "&.is-active": {
-      background:theme.palette.primary.main,
-      color: theme.palette.primary.contrastText,
+      background:theme.palette.thirdly.main,
+      color: theme.palette.thirdly.contrastText,
       fontWeight:'bold',
     },
     background:theme.palette.fourthly.main,
