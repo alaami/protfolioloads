@@ -104,9 +104,19 @@ export default function HeaderLayout(props: any) {
     const imageUrl = "/logo.svg";
     return (
       <>
-        <Box sx={{ display: 'flex', padding:1,justifyContent: 'space-between', alignItems: 'center', height: 80, bgcolor: theme.palette.neutral.main, color: theme.palette.secondary.contrastText }}>
-          <StyledLogo src={imageUrl} alt='logo' />
-          <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: 'flex',  paddingTop: 1, paddingBottom:1,justifyContent: 'space-between', alignItems: 'center', height: 80, color: theme.palette.secondary.contrastText, bgcolor: theme.palette.secondary.light }}>
+          <Box sx={{
+            display: 'flex', 
+            height: 80,
+            width:'15%',
+            bgcolor: theme.palette.neutral.main,
+            borderTopRightRadius: 20,
+            borderBottomRightRadius: 20,
+          }}>
+            <StyledLogo src={imageUrl} alt='logo' />
+          </Box>
+
+          <Box sx={{ display: 'flex'}}>
             {(menu == undefined) ? (
               <h1>Loading menus</h1>
             ) :
@@ -129,7 +139,7 @@ export default function HeaderLayout(props: any) {
     const imageUrl = "/logo.svg";
 
     return (
-      <Toolbar sx={{ justifyContent: 'space-between', alignItems: 'center', height: 80, bgcolor: theme.palette.neutral.main, color: theme.palette.secondary.contrastText }}>
+      <Toolbar sx={{ justifyContent: 'space-between', alignItems: 'center', height: 80, bgcolor: theme.palette.neutral.main, color: theme.palette.primary.main }}>
         <Box>
           <IconButton
             {...{
@@ -152,7 +162,7 @@ export default function HeaderLayout(props: any) {
 
           >
 
-            <MenuList sx={{ bgcolor: theme.palette.thirdly.main, height: '100%' }}>
+            <MenuList sx={{ bgcolor: theme.palette.secondary.light, color: theme.palette.secondary.contrastText , height: '100%' }}>
               {(menu == undefined) ? (
                 <h1>Loading menus</h1>
               ) : (
@@ -167,8 +177,6 @@ export default function HeaderLayout(props: any) {
                 }))}
             </MenuList>
           </Drawer>
-
-
           <StyledLogo src={imageUrl} alt='logo' />
         </Box>
         <LanguageSwitcher />

@@ -10,19 +10,23 @@ const customTheme = createTheme({
   },
     palette: {
       primary: {
-      //  main: '#097392',
-      //contrastText: '#FFF0CE',
-        main: '#D7CEC7',
-        contrastText: '#000',
+        main: '#343DE2',
+        light: '#8388EC',
+        dark: 'rgb(36, 42, 158)',
+        contrastText: '#000103',
+        
       },
       secondary: {
-        main: '#565656',
-        contrastText:  '#76323F',
+        main: '#080B34',
+        light: '#1D375D',
+        dark: 'rgb(5, 7, 36)',
+        contrastText:  '#C1C4F5',
       },
-      thirdly: palette.augmentColor({
+      tertiary: palette.augmentColor({
         color: {
-          main: '#76323F',
-          contrastText:  '#fff',
+          main: '#E28834',
+          light:'#EA9643',
+          contrastText:  'rgba(0, 0, 0, 0.87)',
         }, }),
         fourthly: palette.augmentColor({
           color: {
@@ -61,7 +65,7 @@ declare module '@mui/material/styles' {
       interface PaletteOptions {
         neutral: PaletteOptions['primary'];
         footer: PaletteOptions['primary'];
-        thirdly: PaletteColor;
+        tertiary: PaletteColor;
         fourthly: PaletteColor;
       }
     // allow configuration using `createTheme`

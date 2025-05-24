@@ -22,8 +22,8 @@ const theme = useTheme();
     pl:10,
     pr:10,
     m: 1,
-    bgcolor:theme.palette.footer.main,
-    color:theme.palette.thirdly.contrastText,
+    bgcolor:theme.palette.secondary.light,
+    color:theme.palette.secondary.contrastText,
     borderRadius: 1,
     }}
     >
@@ -47,7 +47,7 @@ const theme = useTheme();
                     <Box sx={{margin: 'auto', padding:1 }}>
                     
                         <Typography variant="body2" component="div" align="left" gutterBottom>
-                        <MailOutline />  info@fititsolution.com
+                        <MailOutline />  info@fititsolutions.com
                         </Typography>
                     </Box>
                 </Grid> 

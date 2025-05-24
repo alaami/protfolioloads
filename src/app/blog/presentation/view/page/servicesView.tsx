@@ -1,20 +1,13 @@
 import {useContext} from "react";
 import ReactMarkdown from "react-markdown";
 import Stack from "@mui/material/Stack";
-import Paper from "@mui/material/Paper";
 import CardMedia from "@mui/material/CardMedia";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import { customTheme } from "../../../../../main/utils/customTheme";
 import Grid from "@mui/material/Grid";
 import {StyledPagePaper, StyledSliderBox,StyledSliderContentBox} from  "../../../../../main/utils/customStyle"; 
 import { useRouter } from "next/router";
 import React from "react";
 import { I18nContext } from "next-i18next";
-import Icon from '@mui/material/Icon';
-import Divider from "@mui/material/Divider";
-import { List, ListItem, ListItemIcon, ListItemText, useTheme } from "@mui/material";
-import { CheckBox, Css } from "@mui/icons-material";
+import { useTheme } from "@mui/material";
 import ServiceView from "../service/serviceView";
 const ServicesView = (props:any) => {
     const { i18n: { language } } = useContext(I18nContext);
@@ -59,7 +52,7 @@ const ServicesView = (props:any) => {
                      <ReactMarkdown>{page[0].attributes.blocks[1].body}</ReactMarkdown>
                     </Grid>
                 </Grid>
-                <ServiceView homeServices={serviceViewServices} bgColor={theme.palette.thirdly.main} color={theme.palette.primary.main}/>                 
+                <ServiceView homeServices={serviceViewServices} bgColor={theme.palette.primary.main} color={theme.palette.tertiary.main}/>                 
                 </StyledPagePaper>
               </Stack>
            

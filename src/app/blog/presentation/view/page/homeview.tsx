@@ -21,7 +21,7 @@ const HomeView = (props: any) => {
     const { i18n: { language } } = useContext(I18nContext);
     const router = useRouter()
     const pathname = router.pathname;
-    const url = 'https://www.fititsolution.com/';
+    const url = 'https://www.fititsolutions.com/';
     const page = props.homePage.filter(function (item) {
         return item.attributes.locale == language;
     });
@@ -80,7 +80,7 @@ const HomeView = (props: any) => {
                         </Box>
 
                         <Grid sx={{ display: "flex", alignContent: "space-around" }} container spacing={0}>
-                            <ServiceView homeServices={homeServices} bgColor={theme.palette.primary.main} color={theme.palette.fourthly.main}  />
+                            <ServiceView homeServices={homeServices} bgColor={theme.palette.primary.main} color={theme.palette.tertiary.light}  />
                         </Grid>
 
                         <Box sx={{ width: '100%', marginTop: 0 }}>

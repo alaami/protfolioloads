@@ -1,7 +1,7 @@
 import { Provider } from "react-redux";
 import { appStoreImplementation } from "../data/appStoreImplementation";
-import Header from "../../app/blog/presentation/view/components/HeaderLayout";
-import Footer from "../../app/blog/presentation/view/components/footer";
+import Header from "@/app/blog/presentation/view/components/HeaderLayout";
+import Footer from "@/app/blog/presentation/view/components/footer";
 import { Container, ThemeProvider } from "@mui/material";
 import { customTheme } from "../utils/customTheme";
 import { useEffect, useState } from "react";
@@ -35,7 +35,7 @@ function AppView() {
       <Provider store={appStoreImplementation}>
       <ThemeProvider theme={customTheme}>
           <Header locale={locale} onLanguageChange={handleLanguageChange}/>
-          <Container maxWidth="xl">
+          <Container>
 {/*           <Routes>
           <Route path="/" element={<HomeView pathname="/home" locale={locale} />} />
           <Route path="/about" element={<AboutView locale={locale} />} />
